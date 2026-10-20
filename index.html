@@ -946,6 +946,7 @@ function renderRail(active){
     if(fresh.length && !(t.classList.contains("on") && t.classList.contains("level"))){
       toast(`Chapter sealed · ${TABS.find(x=>x.id===fresh[0]).name}`, "level", 2000);
     }
+    if(fresh.length) scheduleSync(true); // chapter finished: tag it in GoHighLevel right away
   }
   S._sealed = doneNow; save();
 }
@@ -1369,7 +1370,8 @@ function progressSnapshot(){
     best_follow_rate: best?Number(perK(best.follows,best.views)):null,
     total_follows_from_posts: rows.reduce((s,r)=>s+r.follows,0),
     secrets_done: SECRETS.filter(s=>v("x_"+s.id)).length,
-    chapters_done: TABS.filter(tabDone).length, chapters_total: TABS.length
+    chapters_done: TABS.filter(tabDone).length, chapters_total: TABS.length,
+    chapters_completed: TABS.filter(tabDone).map(t=>t.id)
   };
 }
 let syncT;

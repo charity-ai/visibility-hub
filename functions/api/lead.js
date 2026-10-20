@@ -68,6 +68,7 @@ export async function onRequestPost({ request, env }) {
     chapters_done: numOrNull(data.chapters_done, 100),
     chapters_total: numOrNull(data.chapters_total, 100),
     logins: numOrNull(data.logins, 100000),
+    chapters_completed: Array.isArray(data.chapters_completed) ? data.chapters_completed.map(String).slice(0, 20) : [],
     last_login: data.event === "login" ? new Date().toISOString() : null,
     roadmap: clip(data.roadmap, 20000),
     source: "AI Visibility Kit",
@@ -97,6 +98,19 @@ export async function onRequestPost({ request, env }) {
   return json({ ok: true });
 }
 
+// One tag per finished chapter, in kit order, so workflows can trigger on each step.
+const CHAPTER_TAGS = {
+  start: "vk-step-1-details",
+  brand: "vk-step-2-signature",
+  portrait: "vk-step-3-portrait",
+  linkedin: "vk-step-4-linkedin",
+  instagram: "vk-step-5-instagram",
+  secrets: "vk-step-6-reach-secrets",
+  engine: "vk-step-7-100k-engine",
+  ai: "vk-step-8-found-by-ai",
+  agents: "vk-step-9-growth-agents",
+};
+
 function buildTags(lead) {
   const tags = ["visibility-kit"];
   if (lead.event === "signup") tags.push("kit-signup");
@@ -106,6 +120,7 @@ function buildTags(lead) {
   if (lead.visibility_tier) tags.push(`visibility-${slug(lead.visibility_tier)}`); // e.g. visibility-magnetic
   if (lead.stage) tags.push(`followers-${slug(lead.stage)}`);                     // e.g. followers-1k-to-10k
   if (lead.followers_growth !== null && lead.followers_growth >= 1000) tags.push("kit-success-story");
+  for (const id of lead.chapters_completed) if (CHAPTER_TAGS[id]) tags.push(CHAPTER_TAGS[id]);
   return tags;
 }
 
