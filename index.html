@@ -1,0 +1,1548 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI Visibility Kit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The AI Visibility Kit by Charity Loves AI. A guided workbook that grows your reach and following on LinkedIn and Instagram, and gets you recommended by ChatGPT and Perplexity.">
+<meta property="og:title" content="The AI Visibility Kit · Charity Loves AI">
+<meta property="og:description" content="Get seen, get followed, get chosen. Prompts, reach secrets and a 60-day plan for LinkedIn, Instagram and AI search.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#053127">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23053127'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-size='36' text-anchor='middle' fill='%23CFA140'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a private atelier workbook. Deep-green masthead with one gilded word, chapters in roman numerals on a quiet rail, prompts set like engraved cards, generous margins and hairline gold rules. */
+:root{
+  --green:#053127; --green-2:#0b4536; --gold:#CFA140; --gold-hi:#E8CB86; --gold-lo:#9E7629;
+  --bg:#F6F0E2; --surface:#FBF7EE; --ink:#0B2A21; --muted:#5B6B62; --line:#E1D5BA; --hair:#CFA14066;
+  --accent:#8F6A22; --chip:#EFE5CD; --prompt-bg:#062C23; --prompt-ink:#EFE6D2; --fill:#E3C072; --danger:#B4533A;
+  --f-display:"Cormorant Garamond", "Iowan Old Style", Garamond, Georgia, serif;
+  --f-body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#03211A; --surface:#062C23; --ink:#EFE6D2; --muted:#A6B8AE; --line:#14483B; --hair:#CFA14055;
+  --accent:#D9B464; --chip:#0A3A2E; --prompt-bg:#021813; --prompt-ink:#EFE6D2; --fill:#E3C072; --danger:#E08A6E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#03211A; --surface:#062C23; --ink:#EFE6D2; --muted:#A6B8AE; --line:#14483B; --hair:#CFA14055;
+  --accent:#D9B464; --chip:#0A3A2E; --prompt-bg:#021813; --prompt-ink:#EFE6D2; --fill:#E3C072; --danger:#E08A6E; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;margin:0;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.05;letter-spacing:-.01em;text-wrap:balance;margin:0}
+em{font-style:italic}
+a{color:var(--accent)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:1px solid var(--gold);outline-offset:3px}
+.label{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+.gilt{background:linear-gradient(100deg,var(--gold-lo) 0%,var(--gold-hi) 38%,var(--gold) 60%,var(--gold-lo) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.inner{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* Masthead */
+.mast{background:var(--green);color:#EFE6D2;position:relative;overflow:hidden}
+.mast::before{content:"";position:absolute;inset:0;background:radial-gradient(1100px 520px at 85% -10%,#0f5442 0%,transparent 60%),radial-gradient(700px 400px at -10% 120%,#0a3f31 0%,transparent 60%);pointer-events:none}
+.mast .inner{position:relative}
+.topline{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:22px;border-bottom:1px solid #CFA14033}
+.brand{display:flex;align-items:center;gap:14px}
+.seal{width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--f-display);font-size:22px;color:var(--gold);position:relative}
+.seal::after{content:"";position:absolute;inset:3px;border-radius:50%;border:1px solid #CFA14044}
+.brand b{display:block;font-family:var(--f-display);font-size:21px;font-weight:600;letter-spacing:.01em;line-height:1.1}
+.brand small{color:#BFB596;font-size:12px;letter-spacing:.08em}
+.topline .label{color:var(--gold)}
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:end;padding-block:64px 72px}
+.hero .label{color:var(--gold)}
+.hero h1{font-size:clamp(46px,8vw,96px);margin-top:18px;font-weight:500}
+.hero h1 em{font-weight:500}
+.hero p{max-width:52ch;color:#D3CBB3;margin:24px 0 0;font-size:17px}
+.channels{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;border-top:1px solid #CFA14033;padding-top:16px}
+.channels span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#CDBF98;padding-right:18px;margin-right:18px;border-right:1px solid #CFA14044;line-height:1.2}
+.channels span:last-child{border-right:0}
+
+/* Visibility score dial */
+.dial{border:1px solid #CFA14055;padding:28px;position:relative}
+.dial::before{content:"";position:absolute;inset:6px;border:1px solid #CFA14022;pointer-events:none}
+.dial .label{color:var(--gold)}
+.dial-row{display:flex;align-items:center;gap:22px;margin-top:14px}
+.dial svg{flex:0 0 auto}
+.dial .num{font-family:var(--f-display);font-size:64px;line-height:.9;font-variant-numeric:tabular-nums;color:#F3E9D0}
+.dial .tier{font-family:var(--f-display);font-style:italic;font-size:22px;color:var(--gold-hi)}
+.dial p{margin:16px 0 0;font-size:14px;color:#C9C0A6}
+.tiers{display:flex;justify-content:space-between;margin-top:14px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8FA69B}
+.tiers b{color:var(--gold-hi);font-weight:600}
+
+/* Gate */
+.gate{padding-block:72px 96px}
+.gate-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+.gate h2{font-size:clamp(34px,4.6vw,52px)}
+.gate .label{color:var(--accent)}
+.gate .intro{color:var(--muted);max-width:52ch;margin:16px 0 28px}
+.contents{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.contents li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.contents .rn{font-family:var(--f-display);font-size:20px;color:var(--accent);font-style:italic}
+.contents b{display:block;font-weight:600}
+.contents small{color:var(--muted);font-size:14px}
+.invite{background:var(--surface);border:1px solid var(--line);padding:40px;position:relative}
+.invite::before{content:"";position:absolute;inset:8px;border:1px solid var(--hair);pointer-events:none}
+.invite h3{font-size:34px;margin:10px 0 8px}
+.invite > p{color:var(--muted);margin:0 0 24px;font-size:15px}
+.fields{display:grid;gap:16px}
+.fields .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:7px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+input,select,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 2px;font-size:16px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink);transition:border-color .2s}
+textarea{border:1px solid var(--line);padding:12px 14px;min-height:118px;resize:vertical;line-height:1.55;background:var(--surface)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--accent) 50%),linear-gradient(135deg,var(--accent) 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 7px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+select option{background:var(--surface);color:var(--ink)}
+.consent{display:flex;gap:12px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:13px;font-weight:400;line-height:1.5}
+.consent input{width:16px;height:16px;margin-top:3px;accent-color:#9E7629;flex:0 0 auto}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:#F3E9D0;border:1px solid var(--green);padding:15px 28px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:#0a4535}
+.btn.gold{background:linear-gradient(100deg,#B98B32,#E3C072 50%,#C59A3F);color:#05261E;border-color:#C59A3F}
+.btn.gold:hover{filter:brightness(1.05)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--gold)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.formmsg{font-size:14px;min-height:1.4em;margin:0}
+.formmsg.err{color:var(--danger)}
+.fine{font-size:12px;color:var(--muted);margin:14px 0 0}
+
+/* Workbook */
+.work{display:grid;grid-template-columns:240px minmax(0,1fr);gap:64px;padding-block:56px 96px}
+nav.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start}
+nav.rail .label{color:var(--accent);display:block;margin-bottom:14px}
+nav.rail ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+nav.rail button{width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:12px 2px;cursor:pointer;color:var(--muted);display:grid;grid-template-columns:34px 1fr auto;align-items:baseline;font-size:15px;transition:color .2s}
+nav.rail li:last-child button{border-bottom:1px solid var(--line)}
+nav.rail button .rn{font-family:var(--f-display);font-style:italic;font-size:17px;color:var(--accent)}
+nav.rail button:hover{color:var(--ink)}
+nav.rail button[aria-selected="true"]{color:var(--ink);font-weight:600}
+nav.rail button[aria-selected="true"] .rn{color:var(--ink)}
+nav.rail .ok{color:var(--accent);font-size:12px}
+nav.rail .new{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);border:1px solid var(--hair);padding:1px 6px}
+
+section.tab{min-width:0}
+.chap{display:flex;align-items:baseline;gap:14px;color:var(--accent)}
+.chap .rn{font-family:var(--f-display);font-style:italic;font-size:22px}
+section.tab > h2{font-size:clamp(38px,5.4vw,64px);margin:12px 0 18px}
+section.tab > h2 em{color:var(--accent)}
+.lede{max-width:60ch;color:var(--muted);margin:0 0 44px;font-size:17px}
+.rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:0 0 44px;max-width:240px;border:0}
+
+.grid2{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);padding:32px}
+.panel h3{font-size:28px;margin-bottom:22px}
+ol.how{margin:0;padding:0;list-style:none;counter-reset:h;display:grid;gap:14px}
+ol.how li{counter-increment:h;display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:15px}
+ol.how li::before{content:counter(h,lower-roman)".";font-family:var(--f-display);font-style:italic;color:var(--accent);font-size:18px;line-height:1.3}
+.style-panel{margin-top:40px;display:grid;gap:18px}
+.style-panel h3{margin:0;font-size:32px}
+.style-panel h3 em{color:var(--accent)}
+.style-panel .sub{color:var(--muted);margin:0;max-width:62ch}
+.looks{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.look{position:relative;display:grid;gap:8px;align-content:start;padding:16px;border:1px solid var(--line);cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink);background:var(--bg);transition:border-color .2s,box-shadow .2s}
+.look input{position:absolute;opacity:0;pointer-events:none}
+.look:has(input:checked){border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+.look:has(input:focus-visible){outline:1px solid var(--gold);outline-offset:3px}
+.look .sw{display:flex;height:30px}
+.look .sw i{flex:1}
+.look b{font-family:var(--f-display);font-size:21px;font-weight:600;line-height:1.1}
+.look small{color:var(--muted);font-size:13px;line-height:1.45}
+.row3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:620px}
+.cp{display:flex;gap:10px;align-items:center}
+.cp input[type=color]{width:40px;height:40px;padding:0;border:1px solid var(--line);background:none;flex:0 0 auto;cursor:pointer}
+.cp input:not([type=color]){font-family:var(--f-mono);font-size:14px;text-transform:none}
+.hint{margin:0;font-size:14px;color:var(--muted)}
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:pointer;font-size:14px}
+.seal-s{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#B98B32,#E8CB86 50%,#B98B32);display:inline-grid;place-items:center;color:#05261E;font-size:10px;font-weight:700}
+@keyframes shimmer{0%{box-shadow:0 0 0 0 #CFA14000}35%{box-shadow:0 0 0 1px #CFA140,0 0 48px 6px #CFA14066}100%{box-shadow:0 0 0 0 #CFA14000}}
+.dial.lit{animation:shimmer 1.8s ease}
+.toast.level{border-width:1px;padding:16px 28px;font-size:13px;background:linear-gradient(100deg,#B98B32,#E3C072 50%,#C59A3F);color:#05261E;border-color:#C59A3F}
+.road.cert,.road.cert::before{border-color:var(--gold)}
+.certmark{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.enginehead{display:grid;gap:12px;margin-bottom:28px}
+.stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);margin-bottom:56px}
+.stage{padding:24px;border-right:1px solid var(--line);position:relative}
+.stage:last-child{border-right:0}
+.stage .label{color:var(--muted)}
+.stage b{display:block;font-family:var(--f-display);font-size:26px;font-weight:600;line-height:1.1;margin:8px 0}
+.stage p{margin:0;font-size:14px;color:var(--muted)}
+.stage.on{background:var(--chip);box-shadow:inset 0 2px 0 var(--gold)}
+.stage.on .label{color:var(--accent)}
+.here{display:inline-block;margin-top:12px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.lab{margin-top:56px;display:grid;gap:18px}
+.lab h3{margin:0;font-size:32px}
+.lab .sub{margin:0;color:var(--muted);max-width:64ch}
+.labform{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:end}
+.labform .wide{grid-column:span 2}
+.labstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.labstats div{padding:16px 12px 16px 0}
+.labstats .label{color:var(--muted);font-size:10px}
+.labstats b{display:block;font-family:var(--f-display);font-size:36px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.1;margin-top:4px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line)}
+.lab table{width:100%;border-collapse:collapse;font-size:14px;min-width:760px}
+.lab th{text-align:left;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.lab td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+.lab tr:last-child td{border-bottom:0}
+.lab .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lab td.hook{max-width:280px}
+.lab tr.out{background:var(--chip)}
+.badge{display:inline-block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--hair);padding:1px 6px;margin-left:4px;white-space:nowrap}
+.badge.gold{background:linear-gradient(100deg,#B98B32,#E3C072 50%,#C59A3F);color:#05261E;border-color:#C59A3F}
+.empty{padding:22px;border:1px dashed var(--line);color:var(--muted);font-size:14px}
+.authtabs{display:flex;gap:0;margin:14px 0 22px;border-bottom:1px solid var(--line)}
+.authtabs button{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:10px 2px;margin-right:24px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--muted);cursor:pointer}
+.authtabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+.authform h3{font-size:34px;margin:0 0 8px}
+.authform > p{color:var(--muted);margin:0 0 22px;font-size:15px}
+.authform .linkbtn{justify-self:start}
+.authnote{margin:0 0 18px;padding:14px 16px;border-left:1px solid var(--gold);background:var(--chip);font-size:14px}
+.acct{display:flex;align-items:center;gap:14px}
+#acctBox{display:inline-flex;align-items:center;gap:12px;font-size:13px;color:#CDBF98}
+#acctBox[hidden]{display:none}
+.acctout{color:var(--gold)!important;font-size:12px!important;letter-spacing:.14em;text-transform:uppercase;text-decoration:none!important;font-weight:700}
+.note{margin-top:20px;padding:18px 20px;border-left:1px solid var(--gold);background:var(--chip);font-size:14px}
+
+/* Steps & prompts */
+.step{display:grid;gap:18px;padding-block:40px;border-top:1px solid var(--line)}
+.step:first-of-type{border-top:0;padding-top:0}
+.step-head{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+.step-head .label{color:var(--accent)}
+.step-head h3{font-size:32px}
+.step > p{margin:0;max-width:64ch;color:var(--muted)}
+.prompt{background:var(--prompt-bg);color:var(--prompt-ink);position:relative;border:1px solid #CFA1402E}
+.prompt::before{content:"";position:absolute;inset:6px;border:1px solid #CFA1401A;pointer-events:none}
+.pbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 22px;border-bottom:1px solid #CFA14026}
+.pbar .label{color:var(--gold)}
+.prompt pre{margin:0;padding:22px 22px 26px;white-space:pre-wrap;word-wrap:break-word;font-family:var(--f-mono);font-size:13.5px;line-height:1.75;max-height:440px;overflow:auto}
+.prompt pre mark{background:none;color:var(--fill);border-bottom:1px dotted var(--fill)}
+.prompt pre mark.empty{color:#E7A189;border-bottom-color:#E7A189}
+.copy{background:transparent;color:var(--gold-hi);border:1px solid #CFA14088;padding:7px 16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;cursor:pointer;position:relative;z-index:1;transition:background .2s,color .2s}
+.copy:hover{background:var(--gold);color:#05261E}
+.limit{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:right;margin-top:6px}
+.limit.over{color:var(--danger)}
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border-top:1px solid var(--line);margin-top:8px}
+.tip{padding:22px 22px 22px 0;font-size:14px;color:var(--muted)}
+.tip b{display:block;font-family:var(--f-display);font-weight:600;font-size:22px;color:var(--ink);margin-bottom:6px}
+
+/* Reach secrets */
+.secrets{display:grid;gap:0;border-top:1px solid var(--line)}
+.secret{display:grid;grid-template-columns:72px minmax(0,1fr);gap:24px;padding-block:36px;border-bottom:1px solid var(--line)}
+.secret .no{font-family:var(--f-display);font-size:52px;line-height:.9;color:var(--accent);font-style:italic}
+.secret .meta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:8px}
+.plat{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px solid var(--hair);padding:3px 9px}
+.secret h3{font-size:30px;margin-bottom:10px}
+.secret .why{color:var(--muted);margin:0 0 14px;max-width:62ch}
+.secret .move{margin:0 0 18px;max-width:62ch}
+.secret .move mark{background:none;color:var(--accent);font-weight:600}
+.secret .move mark.empty{color:var(--danger)}
+.secret .prompt{margin-bottom:18px}
+.done{display:inline-flex;gap:12px;align-items:center;cursor:pointer;text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:700;color:var(--ink);border:1px solid var(--line);padding:10px 16px;transition:border-color .2s,background .2s}
+.done input{width:16px;height:16px;margin:0;accent-color:#9E7629}
+.done:has(input:checked){border-color:var(--gold);background:var(--chip)}
+
+/* Roadmap */
+.road{background:var(--surface);border:1px solid var(--line);padding:48px;position:relative}
+.road::before{content:"";position:absolute;inset:8px;border:1px solid var(--hair);pointer-events:none}
+.road h3{font-size:40px;margin:8px 0 4px}
+.road .sub{color:var(--muted);margin:0}
+.road h4{font-family:var(--f-body);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:30px 0 8px;font-weight:700}
+.road p,.road li{margin:0 0 6px;white-space:pre-wrap}
+.road ul{margin:0;padding-left:18px}
+.road .blank{color:var(--muted);font-style:italic}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.routine{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);margin-top:10px}
+.routine div{padding:16px 16px 0 0}
+.routine b{display:block;font-family:var(--f-display);font-size:26px;color:var(--accent);font-style:italic;font-weight:500}
+.routine span{font-size:14px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;align-items:center}
+.offer{margin-top:28px;background:var(--green);color:#EFE6D2;padding:36px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+.offer h3{font-size:30px;color:#F3E9D0}
+.offer p{margin:8px 0 0;color:#C9C0A6;max-width:56ch}
+
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:56px;padding-top:28px;border-top:1px solid var(--line)}
+
+footer{background:var(--green);color:#BFB596}
+footer .inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px;font-size:13px;letter-spacing:.04em}
+footer a{color:var(--gold)}
+
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(8px);background:var(--green);color:#F3E9D0;border:1px solid var(--gold);padding:12px 22px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:20}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media (max-width:900px){
+  .hero,.gate-grid,.grid2,.cols{grid-template-columns:1fr}
+  .hero{gap:36px;padding-block:44px 52px}
+  .work{grid-template-columns:minmax(0,1fr);gap:28px;padding-block:32px 72px}
+  nav.rail{position:static;overflow-x:auto;margin-inline:-20px;padding-inline:20px}
+  nav.rail .label{display:none}
+  nav.rail ol{flex-direction:row;width:max-content;gap:6px}
+  nav.rail button,nav.rail li:last-child button{border:0;border-bottom:1px solid var(--line);white-space:nowrap;grid-template-columns:auto auto auto;gap:8px;padding:10px 12px}
+  nav.rail button[aria-selected="true"]{border-bottom-color:var(--gold)}
+  .fields .row{grid-template-columns:1fr}
+  .invite,.road{padding:28px 22px}
+  .routine{grid-template-columns:1fr 1fr}
+  .row3{grid-template-columns:1fr}
+  .stages{grid-template-columns:1fr}
+  .stage{border-right:0;border-bottom:1px solid var(--line)}
+  .stage:last-child{border-bottom:0}
+  .labform{grid-template-columns:1fr 1fr}
+  .labform .wide{grid-column:1 / -1}
+  .labstats{grid-template-columns:1fr 1fr}
+  .offer{grid-template-columns:1fr}
+  .secret{grid-template-columns:1fr;gap:6px}
+  .secret .no{font-size:40px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="inner">
+    <div class="topline">
+      <div class="brand"><div class="seal">C</div><div><b>Charity Loves AI</b><small>CHARITY BRINSON · AI CONSULTANT</small></div></div>
+      <div class="acct"><span class="label" id="acctLabel">The Visibility Collection</span><span id="acctBox" hidden><span id="acctEmail"></span><button type="button" class="linkbtn acctout" id="signOut">Sign out</button></span></div>
+    </div>
+    <div class="hero">
+      <div>
+        <span class="label">A guided workbook · LinkedIn · Instagram · AI search</span>
+        <h1>The AI <em class="gilt">Visibility</em> Kit.</h1>
+        <p>Get seen by more people, grow a following that buys, and become the name ChatGPT recommends. Fill in your details once, and every prompt, secret and plan in this kit rewrites itself around you.</p>
+        <div class="channels"><span>LinkedIn</span><span>Instagram</span><span>ChatGPT</span><span>Perplexity</span><span>Google</span></div>
+      </div>
+      <div class="dial" aria-live="polite">
+        <span class="label">Your Visibility Score</span>
+        <div class="dial-row">
+          <svg width="96" height="96" viewBox="0 0 96 96" aria-hidden="true">
+            <circle cx="48" cy="48" r="42" fill="none" stroke="#CFA14026" stroke-width="2"></circle>
+            <circle id="ring" cx="48" cy="48" r="42" fill="none" stroke="#CFA140" stroke-width="2" stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="263.9" transform="rotate(-90 48 48)" style="transition:stroke-dashoffset .6s ease"></circle>
+          </svg>
+          <div><div class="num" id="score">0</div><div class="tier" id="tier">Invisible</div></div>
+        </div>
+        <div class="tiers" id="tiers"><span>Invisible</span><span>Findable</span><span>Noticed</span><span>Magnetic</span><span>Everywhere</span></div>
+        <p id="smsg">Your score rises as you complete prompts and put each reach secret to work.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Access gate: collects the lead, then opens the workbook -->
+<section class="gate" id="gate">
+  <div class="inner gate-grid">
+    <div>
+      <span class="label">Inside the kit</span>
+      <h2>Ten chapters. <em>Twelve</em> reach secrets. One engine for growth.</h2>
+      <p class="intro">Built for business owners and service professionals who are good at what they do and tired of being the best-kept secret in their market.</p>
+      <ol class="contents">
+        <li><span class="rn">i</span><div><b>Start with you</b><small>Two minutes. Every prompt personalizes itself.</small></div></li>
+        <li><span class="rn">ii</span><div><b>Your signature statement</b><small>The one sentence people and AI will repeat about you.</small></div></li>
+        <li><span class="rn">iii</span><div><b>Your portrait</b><small>An AI headshot that works from a billboard to a tiny circle.</small></div></li>
+        <li><span class="rn">iv</span><div><b>LinkedIn</b><small>Audit, headline and About section built to be found.</small></div></li>
+        <li><span class="rn">v</span><div><b>Instagram</b><small>Searchable name field, bio, highlights, Reels and grid.</small></div></li>
+        <li><span class="rn">vi</span><div><b>Reach secrets</b><small>Twelve growth moves most people never use.</small></div></li>
+        <li><span class="rn">vii</span><div><b>The 100K engine</b><small>Outlier research, a signature series and a Post Lab that tracks what earns followers.</small></div></li>
+        <li><span class="rn">viii</span><div><b>Found by AI</b><small>See what ChatGPT says about you, then fix it.</small></div></li>
+        <li><span class="rn">ix</span><div><b>Your growth agents</b><small>Two AI assistants that find opportunities weekly.</small></div></li>
+        <li><span class="rn">x</span><div><b>Your roadmap</b><small>Every answer, compiled into one plan from day one to 100K.</small></div></li>
+      </ol>
+    </div>
+    <div class="invite" id="authCard">
+      <span class="label" style="color:var(--accent)">Member access · Complimentary</span>
+      <div class="authtabs" role="tablist" aria-label="Account">
+        <button type="button" role="tab" data-auth="signup" aria-selected="true">Create account</button>
+        <button type="button" role="tab" data-auth="signin" aria-selected="false">Sign in</button>
+      </div>
+      <p class="authnote" id="authNote" role="status" hidden></p>
+
+      <form class="authform" id="f_signup" novalidate>
+        <h3>Open your kit.</h3>
+        <p>Create your free account. Your work is saved to it, so you can pick up where you left off.</p>
+        <div class="fields">
+          <div class="row">
+            <label for="g_first">First name<input id="g_first" name="first" autocomplete="given-name" required></label>
+            <label for="g_email">Email<input id="g_email" name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <div class="row">
+            <label for="g_pass">Password<input id="g_pass" name="password" type="password" autocomplete="new-password" minlength="8" required placeholder="At least 8 characters"></label>
+            <label for="g_ig">Instagram handle<input id="g_ig" name="ig" placeholder="@yourhandle"></label>
+          </div>
+          <div class="hp" aria-hidden="true"><label for="g_company">Company<input id="g_company" name="company" tabindex="-1" autocomplete="off"></label></div>
+          <label class="consent" for="g_consent"><input id="g_consent" name="consent" type="checkbox" checked> Send me my roadmap and occasional visibility tips from Charity Loves AI. Unsubscribe anytime.</label>
+          <label class="consent" for="g_share"><input id="g_share" name="share" type="checkbox" checked> Share my growth progress (Visibility Score, follower count and posting stats) so Charity can cheer me on and spot what's working.</label>
+          <p class="formmsg" id="msg_signup" role="status"></p>
+          <button class="btn gold" type="submit">Create my account</button>
+        </div>
+      </form>
+
+      <form class="authform" id="f_signin" novalidate hidden>
+        <h3>Welcome back.</h3>
+        <p>Sign in to continue your kit.</p>
+        <div class="fields">
+          <label for="s_email">Email<input id="s_email" name="email" type="email" autocomplete="email" required></label>
+          <label for="s_pass">Password<input id="s_pass" name="password" type="password" autocomplete="current-password" required></label>
+          <p class="formmsg" id="msg_signin" role="status"></p>
+          <button class="btn gold" type="submit">Sign in</button>
+          <button type="button" class="linkbtn" data-auth="forgot">Forgot your password?</button>
+        </div>
+      </form>
+
+      <form class="authform" id="f_forgot" novalidate hidden>
+        <h3>Reset your password.</h3>
+        <p>Enter the email you signed up with and we'll send you a secure link to choose a new password.</p>
+        <div class="fields">
+          <label for="r_email">Email<input id="r_email" name="email" type="email" autocomplete="email" required></label>
+          <p class="formmsg" id="msg_forgot" role="status"></p>
+          <button class="btn gold" type="submit">Send reset link</button>
+          <button type="button" class="linkbtn" data-auth="signin">Back to sign in</button>
+        </div>
+      </form>
+
+      <form class="authform" id="f_reset" novalidate hidden>
+        <h3>Choose a new password.</h3>
+        <p>Use at least 8 characters. You'll be signed in right after.</p>
+        <div class="fields">
+          <label for="n_pass">New password<input id="n_pass" name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+          <label for="n_pass2">Confirm new password<input id="n_pass2" name="password2" type="password" autocomplete="new-password" minlength="8" required></label>
+          <p class="formmsg" id="msg_reset" role="status"></p>
+          <button class="btn gold" type="submit">Save new password</button>
+        </div>
+      </form>
+
+      <p class="fine">Use your own ChatGPT, Claude or Gemini account. Your written answers stay in your browser. If you share progress, we receive only your score, follower count and posting numbers. You can turn sharing off anytime in chapter vii.</p>
+    </div>
+  </div>
+</section>
+
+<main class="inner work" id="app" hidden>
+  <nav class="rail" aria-label="Chapters"><span class="label">Chapters</span><ol id="rail"></ol></nav>
+  <div id="tabs"></div>
+</main>
+
+<footer><div class="inner">
+  <span>© 2026 Charity Loves AI, LLC</span>
+  <span><a href="https://charitylovesai.com" target="_blank" rel="noopener">charitylovesai.com</a></span>
+</div></footer>
+<div class="toast" id="toast" role="status">Copied</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+const KEY = "clai-visibility-kit-v2";
+const API = "/api/lead";
+let S = {};
+try { S = JSON.parse(localStorage.getItem(KEY) || localStorage.getItem("clai-visibility-kit-v1") || "{}") || {}; } catch(e) { S = {}; }
+let ACTIVE_KEY = KEY;
+function save(){ try { localStorage.setItem(ACTIVE_KEY, JSON.stringify(S)); } catch(e){} }
+
+const FIELDS = {
+  first:"your first name", business:"your business name", linkedin:"your LinkedIn URL", ig:"your Instagram handle",
+  city:"your city or area", industry:"your industry", doing:"what you do", who:"who you serve", goal:"your 60-day goal",
+  style:"your look", colors:"your two signature colors", voice:"your voice",
+  primary:"your primary platform", followers:"your follower count", lab:"your Post Lab results (log at least 10 posts first)"
+};
+const LOOKS = {
+  "Quiet luxury":    {d:"muted tones, generous white space, refined serif headlines, minimal graphics", sw:["#2f3a34","#c8b79a","#f4efe6"]},
+  "Bold and bright": {d:"saturated color, big confident type, high contrast, energetic layouts", sw:["#ff3d6e","#ffd23f","#1b1bff"]},
+  "Warm and earthy": {d:"natural tones, soft textures, friendly rounded type, real-life photos", sw:["#b5643c","#d9b48f","#6b7d52"]},
+  "Clean and modern":{d:"crisp neutrals, one accent color, simple sans-serif type, clear structure", sw:["#111418","#e9ecef","#2f6bff"]},
+  "Playful":         {d:"bright pops of color, hand-drawn touches, stickers, casual type", sw:["#ff7ab6","#7ae1c8","#ffcf5c"]}
+};
+const VOICES = ["Polished and authoritative","Warm and friendly","Straight-talking and bold","Playful and witty"];
+const raw = k => String(S[k]||"").trim();
+function v(k){
+  if(k==="style"){ const l=raw("look"); return l && LOOKS[l] ? `${l} (${LOOKS[l].d})` : ""; }
+  if(k==="colors"){
+    const c=["c1","c2"].map(raw).filter(Boolean);
+    if(c.length===2) return `${c[0]} and ${c[1]}`;
+    if(c.length===1) return `${c[0]}, plus one complementary color you suggest`;
+    return raw("look") ? "none chosen yet, so suggest 2 colors that suit my look" : "";
+  }
+  if(k==="lab"){
+    const rows=labRows(); if(!rows.length) return "";
+    return "Date | Platform | Hook | Views | Sends | Saves | Follows | Follows per 1K views\n" +
+      rows.map(r=>[r.date,r.plat,r.hook,r.views,r.sends,r.saves,r.follows,perK(r.follows,r.views)].join(" | ")).join("\n");
+  }
+  if(k==="followers"){ const n=parseInt(raw(k),10); return isNaN(n)?"":n.toLocaleString("en-US"); }
+  return raw(k);
+}
+const labRows = () => Array.isArray(S.lab) ? S.lab : [];
+const perK = (n,views) => views>0 ? (n/views*1000).toFixed(1) : "0.0";
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function fill(t){
+  return esc(t).replace(/\{(\w+)\}/g,(m,k)=>{
+    const x=v(k), label = FIELDS[k] ? FIELDS[k] : (k.startsWith("a_") ? "your answer from an earlier chapter" : null);
+    if(label===null) return m;
+    return `<mark class="${x?'':'empty'}">${esc(x||'['+label+']')}</mark>`;
+  });
+}
+const plain = t => t.replace(/\{(\w+)\}/g,(m,k)=> v(k) || (FIELDS[k]?'['+FIELDS[k]+']':'[paste your answer]'));
+const RN = ["i","ii","iii","iv","v","vi","vii","viii","ix","x","xi","xii"];
+
+/* ============ Chapters ============ */
+const TABS = [
+ {id:"start", name:"Start with you", title:"Start <em>with</em> you.", custom:"start"},
+
+ {id:"brand", name:"Signature statement", title:"Say it in <em>one</em> sentence.",
+  lede:"Reach comes from repetition. When people, algorithms and AI tools see the same clear idea attached to your name again and again, they start to remember you, recommend you and show you to more people.",
+  steps:[
+   {k:"Prompt one", h:"Write your signature statement", p:"Paste into ChatGPT, Claude or Gemini. Choose the version that sounds like you when you say it out loud.",
+    prompt:`Act as a personal brand strategist for business owners and service professionals.
+
+About me:
+- Name: {first}
+- Business: {business}
+- What I do: {doing}
+- Who I serve: {who}
+- Industry: {industry}
+- Location: {city}
+- 60-day goal: {goal}
+- My voice: {voice}
+
+Write 5 signature statements for me, in my voice. Each must:
+1. Be one sentence, under 25 words.
+2. Name who I help and the result they get, using words a customer would actually type into search.
+3. Avoid buzzwords like "leverage", "synergy", "passionate" and "solutions".
+4. Be easy to repeat. Someone should be able to introduce me with it.
+
+Then pick the strongest one for growing a following on LinkedIn and Instagram, and explain why in two sentences.`,
+    answer:{id:"a_statement", label:"Your signature statement", ph:"I help ___ do ___ so they can ___."}},
+   {k:"Prompt two", h:"Choose three content pillars", p:"Pillars are the three topics you post about every week. Algorithms learn who to show you to from consistent topics, and so do AI search tools.",
+    prompt:`My signature statement: "{a_statement}"
+I serve: {who}
+Industry: {industry}
+
+Give me 3 content pillars that will grow my following on LinkedIn and Instagram.
+For each pillar:
+- A short name (2 to 4 words)
+- Why my audience would share it with someone else
+- 3 post ideas: one personal story, one step-by-step, one bold opinion my industry would argue about
+
+Make the pillars specific to my audience, not generic business advice.`,
+    answer:{id:"a_pillars", label:"Your three pillars", ph:"1.\n2.\n3."}},
+   {k:"Prompt three", h:"Find your visibility keywords", p:"Keywords are how strangers, algorithms and AI tools find you. They go in your name field, headline, captions, Services page and the questions you answer. Every later prompt in the kit uses the list you save here.",
+    prompt:`Act as a search and social SEO strategist for my niche.
+
+Business: {business}
+What I do: {doing}
+Who I serve: {who}
+Industry: {industry}
+Location: {city}
+Pillars: {a_pillars}
+
+Build my visibility keyword list in plain words my audience actually uses, not industry jargon:
+
+1. CORE (3): the phrases that describe what I do, as a customer would search them. These go in my Instagram name field and LinkedIn headline.
+2. LOCAL (3): those phrases combined with my city or region, for "near me" and local AI questions.
+3. PROBLEM (5): the problems or frustrations {who} type into Google, Instagram search or ChatGPT before they know a solution like mine exists.
+4. QUESTION (5): full questions my audience asks AI tools, word for word.
+5. HASHTAGS (10): niche Instagram hashtags that are specific to my audience, split into 5 larger and 5 smaller community tags. No generic tags like #success or #business.
+6. LINKEDIN (5): skills and topic keywords to add to my LinkedIn Skills section and Services page.
+
+Then give me the single best keyword phrase to own for the next 60 days, and why.`,
+    answer:{id:"a_keywords", label:"Your visibility keywords", ph:"Core: …\nLocal: …\nProblems: …\nBest phrase to own: …"}}
+  ]},
+
+ {id:"portrait", name:"Your portrait", title:"One <em>face</em>, everywhere.",
+  lede:"People follow people. The same polished photo on every platform makes you instantly recognizable in a crowded feed, and helps AI tools connect your profiles as one person.",
+  steps:[
+   {k:"Prompt one", h:"Create your AI headshot", p:"Upload one clear, well-lit photo of yourself (face forward, no sunglasses) to ChatGPT or Gemini, then paste this prompt with it.",
+    prompt:`Using the photo I uploaded, create a premium professional headshot of me.
+
+Keep my face, skin tone, hair texture and features exactly the same. Do not slim, smooth or reshape my face.
+
+Style:
+- Chest-up framing, eyes to camera, warm and confident expression
+- Overall look: {style}
+- Lighting and mood that match that look
+- Background: softly out of focus, in a tone drawn from my signature colors ({colors})
+- Wardrobe: right for someone in {industry} with this look, with one color that complements my palette
+- Square 1:1, high resolution
+
+Keep it simple and uncluttered. No props of any kind: no coffee cups, mugs, laptops, phones, plants, books, desks, shelves or office clutter. No busy patterns and no text. Just me and a clean background, so every bit of attention goes to my face.
+
+It must look like a real photograph by a high-end portrait photographer, not an illustration.`,
+    answer:{id:"a_headshot", label:"Notes on your chosen portrait", ph:"Which version you chose, anything to refine"}},
+   {k:"Prompt two", h:"Crop for the circle", p:"Instagram and LinkedIn shrink your photo to a small circle beside every comment. Your face should fill most of it.",
+    prompt:`Take the headshot we just made and create a profile-photo version:
+- Head and top of shoulders only
+- Face centered, filling about 60% of the frame
+- Same light and background
+- Square 1:1 so it crops cleanly into a circle and still reads at 40 pixels wide`,
+    answer:null},
+   {k:"Prompt three", h:"Your visual style guide", p:"One page that keeps every post, cover and carousel looking like you. Recognizable posts get stopped on, and stopped-on posts get shown to more people.",
+    prompt:`Create a one-page visual style guide for my LinkedIn and Instagram content.
+
+Business: {business}
+Who I serve: {who}
+My look: {style}
+My signature colors: {colors}
+My voice: {voice}
+
+Include:
+1. My palette: primary, secondary, accent and a neutral, with hex codes and where to use each (backgrounds, headlines, highlights)
+2. Two free Google Fonts that fit my look: one for headlines, one for body text
+3. Carousel design rules: slide size, margins, how big the headline is, where my handle goes
+4. Reel on-screen text style: font, color, placement, and how many words per line
+5. Story Highlight cover style
+6. Photo and image style: lighting and editing direction, with ONE clear focal point per image and no props or clutter (no mugs, cups, laptops, plants or desk scenes)
+7. Three "never do" rules that would break my look, including clutter and generic stock-photo scenes
+
+Write it so I can recreate it in Canva in 15 minutes.`,
+    answer:{id:"a_styleguide", label:"Your palette and fonts", ph:"Colors with hex codes, headline font, body font"}}
+  ],
+  tips:[["Nothing but you","No mugs, laptops or desk props. Clutter steals the eye from your face."],["Same photo, everywhere","LinkedIn, Instagram, Google Business Profile and your website."],["Thumbnail test","Shrink it to the size of a comment avatar. You should still be recognizable."],["Real you","If people wouldn't recognize you on a video call, regenerate it."]]},
+
+ {id:"linkedin", name:"LinkedIn", title:"Be <em>found</em> on LinkedIn.",
+  lede:"Your headline follows you into every comment you leave, every search result and every AI answer that cites LinkedIn. Write it for the person you want to reach, not for your résumé.",
+  steps:[
+   {k:"Prompt one", h:"Audit your profile", p:"Paste your current headline and About section after this prompt.",
+    prompt:`Act as a LinkedIn growth strategist. My profile is {linkedin}.
+I'll paste my current headline and About section below.
+
+Goal for the next 60 days: {goal}
+Who I want to reach: {who}
+My signature statement: "{a_statement}"
+
+Score my profile 1 to 10 on each, with one line of feedback:
+1. Headline: can a stranger tell who I help within 3 seconds?
+2. Search keywords my ideal audience actually types
+3. About section opening line (the part shown before "see more")
+4. Proof: results, numbers, credentials
+5. A clear reason to follow me
+6. A clear next step to work with me
+
+Then list the 3 changes that would most increase my profile views and followers, in order.
+
+[Paste your headline and About section here]`,
+    answer:{id:"a_li_audit", label:"Your top three changes", ph:"1.\n2.\n3."}},
+   {k:"Prompt two", h:"Rewrite your headline", p:"Up to 220 characters. The first 50 or so show beside every comment you leave, so lead with who you help.",
+    prompt:`Write 5 LinkedIn headlines for me.
+
+Who I help: {who}
+What I do: {doing}
+Signature statement: "{a_statement}"
+Location: {city}
+My visibility keywords: {a_keywords}
+
+Rules:
+- Under 220 characters
+- Who I help and the result in the first 50 characters
+- 2 of my CORE or LOCAL keywords, worded naturally
+- A reason to follow at the end (for example "Weekly posts on ___")
+- Separate ideas with "|"
+- No emojis, no "Helping you…" clichés`,
+    answer:{id:"a_li_headline", label:"Your new headline", ph:"Paste the headline you chose", max:220}},
+   {k:"Prompt three", h:"Rewrite your About section", p:"",
+    prompt:`Write my LinkedIn About section, 1,200 to 1,800 characters.
+
+Signature statement: "{a_statement}"
+Who I serve: {who}
+Content pillars: {a_pillars}
+Location: {city}
+
+Structure:
+1. An opening line that names my audience's problem (this shows before "see more")
+2. Who I help and how, in two short paragraphs
+3. Three short bullets of results or proof (leave [brackets] where I'll add real numbers)
+4. "Follow me for…" naming my three pillars
+5. One line telling people exactly how to reach me
+
+First person, in my voice ({voice}), short paragraphs for mobile.`,
+    answer:{id:"a_li_about", label:"Your new About section", ph:"Paste the final version", max:2600}}
+  ]},
+
+ {id:"instagram", name:"Instagram", isNew:true, title:"Turn <em>Instagram</em> into a front door.",
+  lede:"Instagram is a search engine now. Your name field and captions are searchable, your Reels reach people who don't follow you yet, and your profile is where they decide to follow in about three seconds.",
+  steps:[
+   {k:"Prompt one", h:"Name field and bio", p:"The name field is separate from your @handle and it is searchable, so put a keyword there. Bios are capped at 150 characters.",
+    prompt:`Act as an Instagram growth strategist.
+
+Handle: {ig}
+Business: {business}
+Who I serve: {who}
+Location: {city}
+Signature statement: "{a_statement}"
+Goal: {goal}
+My visibility keywords: {a_keywords}
+
+Give me:
+A) 5 options for my Instagram NAME field (max 64 characters), formatted "{first} | [one of my CORE or LOCAL keywords]".
+
+B) 5 bio options, each 150 characters or less, with:
+   Line 1: who I help and the result
+   Line 2: one proof point or credential
+   Line 3: a reason to follow ("Daily tips on ___") or a call to action pointing to my link
+Show the character count for each.`,
+    answer:{id:"a_ig_bio", label:"Your new bio", ph:"Paste the bio you chose", max:150}},
+   {k:"Prompt two", h:"Story Highlights", p:"Highlights sit under your bio like the menu of a website. Four to six is ideal.",
+    prompt:`Plan 5 Instagram Story Highlights.
+
+Business: {business}
+Who I serve: {who}
+Pillars: {a_pillars}
+
+For each: a 1 to 2 word title, the 3 to 5 Story slides inside it, and why a new visitor needs it.
+Include a "Start Here" highlight that tells new visitors who I am and why to follow, and a "Results" highlight for proof.
+Suggest highlight covers that match my look ({style}) using my signature colors ({colors}), and describe the icon for each.`,
+    answer:{id:"a_ig_highlights", label:"Your highlight titles", ph:"Start Here · Services · Results · …"}},
+   {k:"Prompt three", h:"Your first three Reels", p:"Reels are how strangers find you. Say your keyword out loud, put it on screen, and put it in the caption.",
+    prompt:`Write 3 Instagram Reel scripts (20 to 40 seconds), one per content pillar: {a_pillars}
+
+Audience: {who} in {city}
+My voice: {voice}
+My look for on-screen text and visuals: {style}, using {colors}
+The goal is reach to NON-followers and new follows.
+
+For each Reel:
+1. A hook for the first 1.5 seconds: on-screen text AND the first words I say
+2. 3 talking points, one sentence each
+3. A reason to SEND it to someone ("Send this to the friend who…")
+4. A follow reason at the end ("Follow for part 2" or "I post one of these every week")
+5. A caption under 300 characters that opens with one of my PROBLEM or QUESTION keywords
+6. 3 to 5 hashtags chosen from my list, and the keyword phrase to say out loud in the first 5 seconds
+
+My visibility keywords: {a_keywords}`,
+    answer:{id:"a_ig_reels", label:"Your three Reel hooks", ph:"1.\n2.\n3."}},
+   {k:"Prompt four", h:"Curate the first nine", p:"New visitors judge your account by the top nine posts. Pin your three strongest so they always lead.",
+    prompt:`Plan the first 9 posts a new visitor sees on my Instagram grid.
+
+Business: {business}
+Signature statement: "{a_statement}"
+Pillars: {a_pillars}
+My look: {style}
+My signature colors: {colors}
+
+Lay it out as a 3x3 grid with format (Reel, carousel or photo), topic and a one-line headline for each.
+Then pick the 3 posts to PIN and explain why each would make a stranger follow me.
+Include: 1 introduction post, 2 proof posts, 3 save-worthy how-to carousels, 3 Reels.
+Describe how each tile should look so the whole grid feels cohesive and unmistakably mine.
+Every tile gets one clear focal point: me, a bold headline, or a single object that matters. No props, clutter or busy stock-photo scenes.`,
+    answer:{id:"a_ig_pins", label:"Your three pinned posts", ph:"1.\n2.\n3."}}
+  ],
+  tips:[["Go professional","A free Creator or Business account unlocks insights, Trial Reels and contact buttons."],["Mirror LinkedIn","Same portrait, same statement, same keywords."],["One elegant link","Your link in bio goes to one page: your offer, booking link and free resource."]]},
+
+ {id:"secrets", name:"Reach secrets", isNew:true, title:"Twelve <em>reach</em> secrets.", custom:"secrets",
+  lede:"These are the moves that separate accounts that stay flat from accounts that grow. Most people never use them. Mark each one done as you put it to work and watch your Visibility Score climb."},
+
+ {id:"engine", name:"The 100K engine", isNew:true, title:"The <em>100K</em> engine.", custom:"engine",
+  lede:"A polished profile makes you findable. Growing from a few hundred to 100,000 followers comes from a repeatable loop: study what already wins in your niche, publish at volume on one platform, measure what turns viewers into followers, and double down. Most accounts that reach 100K get there over 12 to 24 months of near-daily posting. This loop raises your hit rate so every month counts.",
+  steps:[
+   {k:"Prompt one", h:"Hunt your outliers", p:"Spend 20 minutes in Instagram and LinkedIn search using your CORE keywords. Save 10 posts from accounts your size or a little bigger that got far more views than their usual posts. Paste their hooks and captions after this prompt.",
+    prompt:`Act as a short-form content analyst. Below are 10 posts in my niche that performed far above their creators' usual numbers.
+
+My niche: {industry}, serving {who}
+My primary platform: {primary}
+My pillars: {a_pillars}
+
+For each post, identify the hook type, the format, the emotion it triggers, and why people would send or save it.
+Then give me:
+1. The 3 patterns that show up most often
+2. 5 posts I should make using those patterns in MY voice ({voice}) and pillars. Patterns, not copies.
+3. Which pattern to test first, and why
+
+[Paste the 10 posts here: hook, caption, and their view or like counts]`,
+    answer:{id:"a_outliers", label:"Your top three winning patterns", ph:"1.\n2.\n3."}},
+   {k:"Prompt two", h:"Create a signature series", p:"A series gives people a reason to follow instead of just watching. \"Part 12 of 30\" tells a viewer more is coming and it's worth staying for.",
+    prompt:`Design 3 recurring content series for my {primary} account.
+
+Audience: {who}
+Pillars: {a_pillars}
+Winning patterns: {a_outliers}
+Keywords: {a_keywords}
+
+For each series give:
+- A name people will remember and ask for
+- The repeatable format: same opening line, same structure, same length
+- Why someone would follow to catch the next episode
+- The first 10 episode topics
+
+Then recommend the one to start with.`,
+    answer:{id:"a_series", label:"Your series and its first five episodes", ph:"Series name:\n1.\n2.\n3.\n4.\n5."}},
+   {k:"Prompt three", h:"Plan 30 days at volume", p:"Post daily on your primary platform for 30 days. Your other platform gets repurposed versions three times a week.",
+    prompt:`Build my 30-day content calendar.
+
+Primary platform: {primary} (post once a day)
+Secondary platform: repurpose 3 times a week
+Series: {a_series}
+Winning patterns: {a_outliers}
+Pillars: {a_pillars}
+Voice: {voice}
+Look: {style}
+
+For each day: format, topic, the hook (first line or first 1.5 seconds), and ONE call to action (follow, send, save, or comment a keyword).
+Mix: 60% series episodes, 25% tests of my winning patterns, 15% personal story or behind the scenes.
+Mark 2 days a week as Trial Reel hook tests.`,
+    answer:{id:"a_calendar", label:"Your first week of hooks", ph:"Mon:\nTue:\nWed:\nThu:\nFri:\nSat:\nSun:"}},
+   {k:"Prompt four", h:"Run your Sunday review", p:"Log every post in the Post Lab below. On Sundays, copy this prompt with your results already filled in. You're hunting for posts that bring followers, not only views.",
+    prompt:`Act as my growth analyst. Here are my recent posts from my Post Lab:
+
+{lab}
+
+Primary platform: {primary}
+Current followers: {followers}
+
+1. Which posts were outliers on views, and which on follows per 1,000 views? They are often different posts.
+2. What do the top performers have in common: hook, topic, format, length, call to action?
+3. What should I stop doing?
+4. Give me 5 posts for next week that double down on what's working.
+5. One experiment to run next week.`,
+    answer:{id:"a_review", label:"This week's double-down", ph:"What's working and what you'll post more of"}}
+  ]},
+
+ {id:"ai", name:"Found by AI", isNew:true, title:"What does <em>AI</em> say about you?",
+  lede:"More buyers now ask ChatGPT, Perplexity and Google's AI answers who to hire or who to follow. Those tools read your public profiles. Make sure they describe you correctly, and often.",
+  steps:[
+   {k:"Prompt one", h:"Run your AI visibility check", p:"Open ChatGPT with search on, or Perplexity, and paste this. Run it again on day 60 and compare.",
+    prompt:`Search the web and answer:
+
+1. Who is {first} of {business} in {city}? What are they known for?
+2. Who are the best people to follow or hire for "{doing}" for {who} in {city}?
+3. What do {first}'s LinkedIn ({linkedin}) and Instagram ({ig}) say they specialize in?
+
+List the sources you used for each answer.
+Then rate how visible {first} is: not found, found but vague, or clearly recommended.`,
+    answer:{id:"a_ai_check", label:"What AI said about you today", ph:"Not found / vague / recommended, and what it got wrong"}},
+   {k:"Prompt two", h:"Close the gaps", p:"",
+    prompt:`AI search tools currently say this about me:
+{a_ai_check}
+
+How I want to be described: "{a_statement}"
+Profiles: LinkedIn {linkedin}, Instagram {ig}
+Pillars: {a_pillars}
+
+Build me a checklist so AI tools describe and recommend me correctly:
+- The exact phrase to repeat word for word on LinkedIn, Instagram, my website and Google Business Profile
+- 3 directories or listing sites in {industry} where I should have a complete profile
+- 5 questions {who} ask AI tools that I should answer publicly, with a title for each
+- 2 podcasts, publications or associations whose mention would make AI tools trust me`,
+    answer:{id:"a_ai_fix", label:"Your update checklist", ph:"Where to update and what phrase to use"}}
+  ],
+  tips:[["One sentence, word for word","Repetition across profiles is how AI tools learn who you are."],["Name your city","Local questions get matched to profiles that say where you work."],["Recheck on day 60","Paste both answers into your roadmap to see the change."]]},
+
+ {id:"agents", name:"Growth agents", title:"Two <em>agents</em>, working weekly.",
+  lede:"Save each as a custom GPT, a Claude Project or a scheduled task. They keep you consistent, and consistency is what compounds reach.",
+  steps:[
+   {k:"Agent one", h:"The Opportunity Finder", p:"Finds the conversations, accounts and stages where your future followers already gather.",
+    prompt:`You are my Opportunity Finder. Run every Monday.
+
+Me: {first}, {business}, {city}
+Signature statement: "{a_statement}"
+Who I serve: {who}
+Goal: {goal}
+
+Search the web and give me:
+1. 5 LinkedIn posts from the last 3 days by accounts with large followings that {who} follow, where an insightful early comment from me would be seen. Link + a 3-line comment that adds one new idea.
+2. 5 Instagram accounts serving {who} that I could invite to a Collab post, with a one-line pitch for each.
+3. 3 podcasts, live events, local groups or newsletters that would put me in front of {who}, with how to reach them.
+4. 1 trending topic in {industry} this week I should post my opinion on.
+
+One screen. Nothing older than 14 days.`,
+    answer:{id:"a_agent1", label:"Where you'll save Agent One", ph:"Custom GPT, Claude Project, scheduled task…"}},
+   {k:"Agent two", h:"The Multiplier", p:"Turns one idea into a week of posts across both platforms, each written to be shared.",
+    prompt:`You are my Multiplier.
+
+Signature statement: "{a_statement}"
+Pillars: {a_pillars}
+Audience: {who}
+
+When I give you one idea, voice note, client win or question I was asked, turn it into:
+1. A LinkedIn post (150 to 250 words, first line works on its own, ends with a question that invites real answers)
+2. A LinkedIn document carousel (8 slides of text I can export as a PDF)
+3. An Instagram carousel (7 slides: hook, 5 points, a "save this" or "send this" slide)
+4. An Instagram Reel script (30 seconds, hook in the first 1.5 seconds, includes "send this to…")
+5. 3 Instagram Stories with a poll or question sticker
+6. 2 Trial Reel hook variations to test with non-followers
+
+My voice: {voice}. My visual look: {style}, using {colors}. Describe slide and on-screen text design in that style.
+Every visual has one clear focal point. No props, clutter, mugs, laptops or generic stock-photo scenes.
+Work my visibility keywords into captions and on-screen text naturally: {a_keywords}
+No hashtags on LinkedIn; 3 to 5 specific hashtags on Instagram.
+
+Today's idea: [paste it here]`,
+    answer:{id:"a_agent2", label:"Your first idea to multiply", ph:"A client win, a question you're asked often, a lesson…"}}
+  ]},
+
+ {id:"roadmap", name:"Your roadmap", title:"From day one to <em>100K</em>.", custom:"roadmap"}
+];
+
+/* ============ Reach secrets ============ */
+const SECRETS = [
+ {id:"trial", plat:"Instagram", h:"Test in private with Trial Reels",
+  why:"Instagram lets professional accounts post a Reel as a trial, shown to people who don't follow you before your followers ever see it. You can test hooks on strangers with no risk to your account.",
+  move:"Post the same Reel twice as trials with two different opening lines. After a day or two, share the stronger one to your followers and delete nothing."},
+ {id:"sends", plat:"Instagram", h:"Write for sends, not likes",
+  why:"Instagram's leadership has said that sends, when someone shares your post by DM, are one of the strongest signals for reaching new people. A like stays with you. A send carries you to someone new.",
+  move:"End every Reel and carousel by naming a specific person to send it to. \"Send this to the friend who…\" beats \"Like and follow\" every time.",
+  prompt:`Rewrite my 3 Reel ideas so each is something {who} would DM to a specific friend:
+{a_ig_reels}
+
+For each give: who they'd send it to, a sharper hook, and a closing line that starts "Send this to the…".`},
+ {id:"collab", plat:"Instagram", h:"Borrow a room with Collab posts",
+  why:"A Collab post appears on both accounts' profiles and feeds, and the likes and comments are shared. One post can put you in front of an audience you'd need a year to build.",
+  move:"Find businesses that serve {who} but don't compete with you. Offer to co-create one genuinely useful carousel.",
+  prompt:`Find 10 Instagram accounts that serve {who} in or near {city} but don't compete with {business}.
+For each: why our audiences overlap, a Collab post idea that helps both audiences, and a warm 3-sentence DM pitch from me.`},
+ {id:"keyword", plat:"Instagram", h:"Turn comments into followers and leads",
+  why:"\"Comment GUIDE and I'll send it to you\" turns quiet viewers into commenters. Every comment tells Instagram the post is worth showing to more people, and every DM is a conversation you can continue.",
+  move:"Create one free resource, promote it in a Reel with a one-word keyword, and deliver it automatically by DM with your CRM or an Instagram automation tool.",
+  prompt:`Create a free resource {who} would comment to get.
+Give me: the title, the one-word comment keyword, a 30-second Reel script promoting it, and the automatic DM (under 300 characters) with a [LINK] placeholder and a reason to follow me.`},
+ {id:"google", plat:"Instagram", h:"Show up in Google with your captions",
+  why:"Public posts from professional Instagram accounts can now appear in Google search results. A caption written like an answer can bring you traffic long after the post stops trending.",
+  move:"Open captions with one of your QUESTION keywords, answer it in the next line, and add alt text with a CORE keyword under Advanced settings before you post."},
+ {id:"stories", plat:"Instagram", h:"Stay in the front row of Stories",
+  why:"The Story tray tends to put accounts people interact with up front. A poll or question sticker is the easiest interaction you can ask for, and it keeps you visible to your followers between posts.",
+  move:"Post one to three Stories a day with a poll, quiz or question sticker. Reply to every answer by DM."},
+ {id:"newsletter", plat:"LinkedIn", h:"Spend your one-time newsletter blast wisely",
+  why:"When you publish the first edition of a LinkedIn newsletter, LinkedIn invites your connections and followers to subscribe. It's a one-time notification to your whole network, so most people waste it on a weak first issue.",
+  move:"Grow your connections for 30 days first, then launch with the single most useful piece you can write for {who}.",
+  prompt:`Plan my LinkedIn newsletter.
+Give me: a name that includes a keyword {who} search for, a one-line subscribe promise, a publishing rhythm I can keep, and a full outline for edition one: the most useful thing I could publish about {industry} for {who}.`},
+ {id:"firsthour", plat:"LinkedIn", h:"Own the first hour of bigger posts",
+  why:"Early, thoughtful comments on large accounts sit near the top of the thread and are read by thousands of people who don't know you yet. Your headline travels with every comment.",
+  move:"Turn on notifications for 5 large accounts your audience follows. Comment within the first hour with one new idea in three lines, never \"Great post!\"."},
+ {id:"docs", plat:"LinkedIn", h:"Post carousels as documents",
+  why:"A PDF uploaded as a document post becomes a swipeable carousel. Every swipe keeps people on your post longer, and the format is still underused by most professionals.",
+  move:"Every Instagram carousel you make, export as a PDF and post to LinkedIn the same week with a new opening line."},
+ {id:"services", plat:"LinkedIn", h:"Open a free Services page",
+  why:"A LinkedIn Services page lists what you offer and makes you appear when people search for service providers. It also lets people request a proposal directly from your profile.",
+  move:"Add three to five services named the way {who} would search for them, with your city in the description."},
+ {id:"questions", plat:"AI search", h:"Answer the exact question",
+  why:"ChatGPT, Perplexity and Google's AI answers favor pages that answer a specific question directly. LinkedIn articles and well-titled posts are public and get cited.",
+  move:"Publish one LinkedIn article a month titled with a question {who} actually ask, answered in the first paragraph.",
+  prompt:`Starting from my QUESTION keywords ({a_keywords}), list the 10 questions {who} in {city} are most likely to ask ChatGPT about {industry}.
+For each: a title that is the exact question, a direct 3-sentence answer, and which of my pillars it belongs to.`},
+ {id:"community", plat:"AI search", h:"Be the helpful voice in communities",
+  why:"AI tools cite Reddit and online communities heavily, and members remember who actually helped. Generous answers build reputation in places your profiles can't reach.",
+  move:"Answer two questions a week where {who} ask for help. No links, no pitch. Your profile does the rest.",
+  prompt:`Find 5 subreddits, forums or online groups where {who} ask for help with problems related to {industry}.
+For each: the name, its rules on self-promotion, and 3 common questions I could answer generously without linking to myself.`}
+];
+
+/* ============ Rendering ============ */
+const rail = document.getElementById("rail"), tabsEl = document.getElementById("tabs");
+const answerIds = () => TABS.flatMap(t=>(t.steps||[]).filter(s=>s.answer).map(s=>s.answer.id));
+
+function tabDone(t){
+  if(t.id==="start") return ["first","who","doing","goal"].every(k=>v(k));
+  if(t.id==="secrets") return SECRETS.every(s=>v("x_"+s.id));
+  if(!t.steps) return false;
+  const a=t.steps.filter(s=>s.answer); return a.length>0 && a.every(s=>v(s.answer.id));
+}
+function renderRail(active){
+  const sealed = Array.isArray(S._sealed) ? S._sealed : null;
+  const doneNow = TABS.filter(tabDone).map(t=>t.id);
+  rail.innerHTML = TABS.map((t,i)=>`<li><button role="tab" data-id="${t.id}" aria-selected="${t.id===active}">
+    <span class="rn">${RN[i]}</span><span>${t.name}</span>
+    ${doneNow.includes(t.id)?'<span class="seal-s" title="Chapter sealed" aria-label="complete">✓</span>':(t.isNew?'<span class="new">New</span>':'<span></span>')}</button></li>`).join("");
+  // Chapter seal moment: celebrate only chapters completed during this visit
+  if(sealed){
+    const fresh = doneNow.filter(id=>!sealed.includes(id));
+    const t = document.getElementById("toast");
+    if(fresh.length && !(t.classList.contains("on") && t.classList.contains("level"))){
+      toast(`Chapter sealed · ${TABS.find(x=>x.id===fresh[0]).name}`, "level", 2000);
+    }
+  }
+  S._sealed = doneNow; save();
+}
+
+function promptBlock(text, ref){
+  return `<div class="prompt"><div class="pbar"><span class="label">Copy into your AI</span><button class="copy" data-ref="${ref}">Copy prompt</button></div>
+    <pre data-ref="${ref}">${fill(text)}</pre></div>`;
+}
+
+function startHTML(){
+  const f=(id,label,ph)=>`<label for="f_${id}">${label}<input id="f_${id}" data-k="${id}" placeholder="${ph}" value="${esc(v(id))}"></label>`;
+  const goals=["Grow my following with the right people","Land new clients for my business","Get booked to speak and on podcasts","Become the known name in my niche"];
+  return `<p class="lede">Fill this in once. Every prompt and secret in the kit rewrites itself with your details, so everything you copy is ready to paste.</p>
+  <hr class="rule">
+  <div class="grid2">
+    <div class="panel"><h3>Your details</h3><div class="fields">
+      <div class="row">${f("first","First name","Charity")}${f("business","Business name","Charity Loves AI")}</div>
+      <div class="row">${f("linkedin","LinkedIn link","linkedin.com/in/yourname")}${f("ig","Instagram handle","@yourhandle")}</div>
+      <div class="row">${f("city","City or area","Inland Empire, California")}${f("industry","Industry","Property management")}</div>
+      ${f("doing","What you do, in one line","I run a boutique property management firm")}
+      ${f("who","Who you want to reach","HOA boards and independent landlords")}
+      <label for="f_goal">Your goal for the next 60 days<select id="f_goal" data-k="goal"><option value="">Choose one</option>${goals.map(g=>`<option ${v("goal")===g?"selected":""}>${g}</option>`).join("")}</select></label>
+    </div></div>
+    <div><div class="panel"><h3>How to use the kit</h3><ol class="how">
+      <li>Complete your details here.</li>
+      <li>Move through the chapters in order. Your statement shapes everything after it.</li>
+      <li>Copy each prompt into ChatGPT, Claude or Gemini.</li>
+      <li>Paste your best answers back into the boxes. They flow into later prompts and your roadmap.</li>
+      <li>Put the reach secrets to work, then email or copy your roadmap.</li>
+    </ol></div>
+    <div class="note"><b>Use your own AI account.</b> Turn off model training on your chats in your data settings, and never paste passwords, ID numbers or client confidential information.</div></div>
+  </div>
+  ${styleHTML()}`;
+}
+
+function styleHTML(){
+  const look=raw("look");
+  const pick=(n,i,lab)=>`<label for="t_${n}">${lab}<span class="cp">
+      <input type="color" id="p_${n}" data-color="${n}" value="${/^#[0-9a-f]{6}$/i.test(raw(n))?raw(n):["#1f2a44","#e8e2d6","#d4664a"][i]}" aria-label="${lab} color picker">
+      <input id="t_${n}" data-k="${n}" placeholder="#hex" value="${esc(raw(n))}" maxlength="7"></span></label>`;
+  return `<div class="panel style-panel">
+    <span class="label" style="color:var(--accent)">Your style</span>
+    <h3>Make every output look like <em>you</em>.</h3>
+    <p class="sub">Your look, colors and voice flow into every prompt in the kit: your portrait, highlight covers, carousels, Reels and captions. A consistent style makes people recognize your posts before they see your name.</p>
+    <div class="looks" role="radiogroup" aria-label="Your look">${Object.entries(LOOKS).map(([n,o])=>`
+      <label class="look"><input type="radio" name="look" data-k="look" value="${n}" ${look===n?"checked":""}>
+        <span class="sw" aria-hidden="true">${o.sw.map(c=>`<i style="background:${c}"></i>`).join("")}</span>
+        <b>${n}</b><small>${o.d}</small></label>`).join("")}</div>
+    <div><b style="font-family:var(--f-display);font-size:22px;font-weight:600">Two colors you love</b>
+    <p class="hint" style="margin-top:4px">Choose two colors you'd love to be known for, or paste your brand's hex codes. The AI builds your palette around them and suggests a neutral to keep things clean.</p></div>
+    <div class="row3">${pick("c1",0,"First color")}${pick("c2",1,"Second color")}</div>
+    <p class="hint">Not sure? Leave them empty and the AI will suggest two colors that suit your look. <button type="button" class="linkbtn" id="clearColors">Clear colors</button></p>
+    <label for="f_voice" style="max-width:420px">Your voice<select id="f_voice" data-k="voice"><option value="">Choose one</option>${VOICES.map(x=>`<option ${raw("voice")===x?"selected":""}>${x}</option>`).join("")}</select></label>
+  </div>`;
+}
+
+function stepsHTML(t){
+  let h = `<p class="lede">${t.lede}</p><hr class="rule">`;
+  t.steps.forEach((s,i)=>{
+    const a=s.answer;
+    h += `<div class="step">
+      <div class="step-head"><span class="label">${s.k}</span><h3>${s.h}</h3></div>
+      ${s.p?`<p>${s.p}</p>`:""}
+      ${promptBlock(s.prompt, t.id+":"+i)}
+      ${a?`<div><label for="f_${a.id}">${a.label}<textarea id="f_${a.id}" data-k="${a.id}" placeholder="${esc(a.ph)}">${esc(v(a.id))}</textarea></label>
+        ${a.max?`<div class="limit" data-lim="${a.id}" data-max="${a.max}"></div>`:""}</div>`:""}
+    </div>`;
+  });
+  if(t.tips) h += `<div class="tips">${t.tips.map(([b,x])=>`<div class="tip"><b>${b}</b>${x}</div>`).join("")}</div>`;
+  return h;
+}
+
+function secretsHTML(t){
+  return `<p class="lede">${t.lede}</p><hr class="rule"><div class="secrets">${SECRETS.map((s,i)=>`
+    <article class="secret">
+      <div class="no">${String(i+1).padStart(2,"0")}</div>
+      <div style="min-width:0">
+        <div class="meta"><span class="plat">${s.plat}</span></div>
+        <h3>${s.h}</h3>
+        <p class="why">${esc(s.why)}</p>
+        <p class="move"><b>Your move.</b> ${fill(s.move)}</p>
+        ${s.prompt?promptBlock(s.prompt,"secret:"+i):""}
+        <label class="done" for="x_${s.id}"><input type="checkbox" id="x_${s.id}" data-x="${s.id}" ${v("x_"+s.id)?"checked":""}> I've put this to work</label>
+      </div>
+    </article>`).join("")}</div>`;
+}
+
+const STAGES = [
+  {min:0,     max:1000,   range:"Under 1,000",      h:"Find your format", d:"Post daily on one platform. Test hooks with Trial Reels. You're looking for the first post that travels far beyond your followers, then you make ten more like it."},
+  {min:1000,  max:10000,  range:"1,000 to 10,000",  h:"Build the franchise", d:"Turn your best format into a named series. Collab with accounts your size. Launch a free resource with a comment keyword so followers become leads."},
+  {min:10000, max:100000, range:"10,000 to 100,000",h:"Become the reference", d:"Collab with bigger accounts, guest on podcasts, launch your newsletter, and publish the answers AI tools cite in your niche."}
+];
+function engineHTML(t){
+  const f=parseInt(raw("followers"),10), has=!isNaN(f);
+  const si = !has ? -1 : f<1000?0 : f<10000?1 : 2;
+  const next = has ? [1000,10000,100000].find(m=>f<m) : null;
+  const plats=["Instagram","LinkedIn"];
+  return `<p class="lede">${t.lede}</p><hr class="rule">
+  <div class="panel enginehead">
+    <div class="fields"><div class="row">
+      <label for="f_followers">Followers on your primary platform today<input id="f_followers" data-k="followers" inputmode="numeric" placeholder="250" value="${esc(raw("followers"))}"></label>
+      <label for="f_primary">Primary platform<select id="f_primary" data-k="primary"><option value="">Choose one</option>${plats.map(p=>`<option ${raw("primary")===p?"selected":""}>${p}</option>`).join("")}</select></label>
+    </div></div>
+    <p class="hint" id="nextMs">${has ? (next ? `${(next-f).toLocaleString("en-US")} followers to your next milestone of ${next.toLocaleString("en-US")}.` : "Past 100,000. Keep the loop running.") : "Enter your follower count to see your stage."}${has && raw("f0") && raw("f0")!==String(f) ? ` You started at ${Number(raw("f0")).toLocaleString("en-US")} on ${esc(raw("f0date"))}: <b>${f-Number(raw("f0"))>=0?"+":""}${(f-Number(raw("f0"))).toLocaleString("en-US")}</b> so far. Update this number every Sunday.` : (has?" Update this number every Sunday.":"")}</p>
+    <p class="hint">Not sure which platform? Choose Instagram for the fastest follower growth through Reels, or LinkedIn if your buyers are business decision-makers.</p>
+    <label class="consent" for="f_share"><input id="f_share" type="checkbox" data-share ${S.share==="0"?"":"checked"}> Share my progress with Charity Loves AI: Visibility Score, followers and Post Lab numbers. Your written answers are never sent.</label>
+  </div>
+  <div class="stages">${STAGES.map((s,i)=>`<div class="stage${i===si?" on":""}"><span class="label">${s.range}</span><b>${s.h}</b><p>${s.d}</p>${i===si?'<span class="here">You are here</span>':""}</div>`).join("")}</div>
+  ${stepsHTML({...t, lede:"", tips:null}).replace('<p class="lede"></p><hr class="rule">','')}
+  ${labHTML()}`;
+}
+function labHTML(){
+  const rows=labRows(), views=rows.map(r=>r.views).sort((a,b)=>a-b);
+  const med = views.length ? (views.length%2 ? views[(views.length-1)/2] : Math.round((views[views.length/2-1]+views[views.length/2])/2)) : 0;
+  const best = rows.reduce((b,r)=> (r.views>0 && (!b || r.follows/r.views > b.follows/b.views)) ? r : b, null);
+  const isOut = r => rows.length>=5 && med>0 && r.views>=2*med;
+  const outs = rows.filter(isOut).length;
+  const today = new Date().toISOString().slice(0,10);
+  const n = x => Number(x).toLocaleString("en-US");
+  return `<div class="panel lab" id="lab">
+    <span class="label" style="color:var(--accent)">Your Post Lab</span>
+    <h3>Measure what makes people follow.</h3>
+    <p class="sub">Log each post a few days after it goes live, using the numbers in your post insights. Follows per 1,000 views is the number that matters most. A post that brings followers is worth repeating even if it didn't go viral.</p>
+    <div class="labform">
+      <label for="lab_date">Date<input id="lab_date" type="date" value="${today}"></label>
+      <label for="lab_plat">Format<select id="lab_plat"><option>Instagram Reel</option><option>Instagram carousel</option><option>Instagram post</option><option>LinkedIn post</option><option>LinkedIn carousel</option><option>LinkedIn video</option></select></label>
+      <label for="lab_hook" class="wide">Hook or first line<input id="lab_hook" maxlength="140" placeholder="The 3 words that cost landlords $10K a year"></label>
+      <label for="lab_views">Views<input id="lab_views" inputmode="numeric" placeholder="4,200"></label>
+      <label for="lab_sends">Sends<input id="lab_sends" inputmode="numeric" placeholder="38"></label>
+      <label for="lab_saves">Saves<input id="lab_saves" inputmode="numeric" placeholder="51"></label>
+      <label for="lab_follows">Follows<input id="lab_follows" inputmode="numeric" placeholder="22"></label>
+      <button class="btn" type="button" id="labAdd">Log post</button>
+    </div>
+    <p class="formmsg" id="labMsg" role="status"></p>
+    <div class="labstats">
+      <div><span class="label">Posts logged</span><b>${rows.length}</b></div>
+      <div><span class="label">Median views</span><b>${rows.length?n(med):"–"}</b></div>
+      <div><span class="label">Best follows per 1K</span><b>${best?perK(best.follows,best.views):"–"}</b></div>
+      <div><span class="label">Outliers</span><b>${rows.length>=5?outs:"–"}</b></div>
+    </div>
+    ${rows.length ? `<div class="tablewrap"><table>
+      <thead><tr><th>Date</th><th>Format</th><th>Hook</th><th class="num">Views</th><th class="num">Sends</th><th class="num">Saves</th><th class="num">Follows</th><th class="num">Follows / 1K</th><th></th></tr></thead>
+      <tbody>${rows.slice().reverse().map(r=>`<tr class="${isOut(r)?"out":""}">
+        <td>${esc(r.date)}</td><td>${esc(r.plat)}</td><td class="hook">${esc(r.hook)}${isOut(r)?' <span class="badge">Outlier</span>':""}${best===r?' <span class="badge gold">Best follow rate</span>':""}</td>
+        <td class="num">${n(r.views)}</td><td class="num">${n(r.sends)}</td><td class="num">${n(r.saves)}</td><td class="num">${n(r.follows)}</td><td class="num"><b>${perK(r.follows,r.views)}</b></td>
+        <td><button class="linkbtn" data-del="${r.id}" aria-label="Remove this post">Remove</button></td></tr>`).join("")}</tbody></table></div>`
+      : `<div class="empty">No posts logged yet. Log your first one above. Outliers are flagged once you have five posts: any post with at least twice your median views.</div>`}
+  </div>`;
+}
+
+function roadmapText(){
+  const d = k => v(k) || "-";
+  const done = SECRETS.filter(s=>v("x_"+s.id)).map(s=>"✓ "+s.h);
+  const todo = SECRETS.filter(s=>!v("x_"+s.id)).map(s=>"○ "+s.h);
+  return [
+`THE AI VISIBILITY KIT · ROADMAP
+${v("first")||"Me"}${v("business")?" · "+v("business"):""}${v("city")?" · "+v("city"):""}
+Visibility Score: ${score()} / 100 (${tierName(score())})`,
+`60-DAY GOAL\n${d("goal")}`,
+`SIGNATURE STATEMENT\n${d("a_statement")}`,
+`CONTENT PILLARS\n${d("a_pillars")}`,
+`VISIBILITY KEYWORDS\n${d("a_keywords")}`,
+`YOUR STYLE\nLook: ${d("look")}\nSignature colors: ${["c1","c2"].map(raw).filter(Boolean).join(", ")||"-"}\nVoice: ${d("voice")}\nPalette and fonts: ${d("a_styleguide")}`,
+`LINKEDIN · ${d("linkedin")}\nHeadline: ${d("a_li_headline")}\nTop changes:\n${d("a_li_audit")}`,
+`INSTAGRAM · ${d("ig")}\nBio: ${d("a_ig_bio")}\nHighlights: ${d("a_ig_highlights")}\nPinned posts:\n${d("a_ig_pins")}\nFirst Reels:\n${d("a_ig_reels")}`,
+`REACH SECRETS\n${[...done,...todo].join("\n")}`,
+`AI VISIBILITY\nDay 1 check: ${d("a_ai_check")}\nChecklist:\n${d("a_ai_fix")}`,
+`DAILY 20-MINUTE REACH ROUTINE
+5 min  Comment early on 3 large LinkedIn posts your audience reads
+5 min  Reply to every comment and DM from the last 24 hours
+5 min  Post a Story with a poll or question sticker
+5 min  Publish or schedule one post, Reel or Trial Reel`,
+`DAYS 1–30 · BE FINDABLE
+Week 1  Portrait and signature statement on every profile. Instagram name field keyword live.
+Week 2  New LinkedIn headline, About and Services page. Instagram bio and highlights.
+Week 3  Three Reels (test hooks as Trial Reels). Pin your three strongest posts.
+Week 4  Run the Opportunity Finder. Send two Collab invitations. Launch your comment keyword.`,
+`DAYS 31–60 · BE EVERYWHERE
+Weeks 5–6  Post 4x a week per platform with the Multiplier. Carousels go to LinkedIn as PDFs.
+Week 7     Launch your LinkedIn newsletter. Publish one question-titled article.
+Week 8     Repost your best performer with a new hook. Re-run the AI check and compare with day 1.`,
+`BEYOND DAY 60 · THE 100K ENGINE
+Primary platform: ${d("primary")} · Followers today: ${v("followers")||"-"}
+Signature series: ${d("a_series")}
+Winning patterns: ${d("a_outliers")}
+Every week: post daily on ${raw("primary")||"your primary platform"}, log each post in the Post Lab, run the Sunday review, double down on the posts with the highest follows per 1,000 views.
+Under 1,000: find your format · 1,000 to 10,000: build the franchise · 10,000 to 100,000: become the reference`
+  ].join("\n\n");
+}
+
+function roadmapHTML(){
+  const b = k => v(k)?esc(v(k)):'<span class="blank">Not completed yet</span>';
+  const done = SECRETS.filter(s=>v("x_"+s.id));
+  const cert = tierIdx(score())===4;
+  const sw = ["c1","c2"].map(raw).filter(c=>/^#[0-9a-f]{6}$/i.test(c));
+  return `<p class="lede">Everything you've written, compiled into one plan. Keep it where you'll see it every Monday.</p><hr class="rule">
+  <div class="road${cert?" cert":""}">
+    ${cert?'<div class="certmark"><span class="seal-s">✓</span>Certified · Everywhere</div><br>':""}
+    <span class="label" style="color:var(--accent)">Prepared for</span>
+    <h3>${v("first")?esc(v("first"))+"’s":"Your"} Visibility Roadmap</h3>
+    <p class="sub">${esc([v("business"),v("city")].filter(Boolean).join(" · "))} · Visibility Score ${score()} / 100, ${tierName(score())}</p>
+    <h4>Sixty-day goal</h4><p>${b("goal")}</p>
+    <h4>Signature statement</h4><p>${b("a_statement")}</p>
+    <h4>Content pillars</h4><p>${b("a_pillars")}</p>
+    <h4>Visibility keywords</h4><p>${b("a_keywords")}</p>
+    <h4>Your style</h4>
+    <p>${raw("look")?esc(raw("look")):'<span class="blank">No look chosen yet</span>'}${raw("voice")?" · "+esc(raw("voice"))+" voice":""}</p>
+    ${sw.length?`<p style="display:flex;gap:8px;align-items:center">${sw.map(c=>`<span style="width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:${c}"></span><span style="font-family:var(--f-mono);font-size:13px;margin-right:10px">${c}</span>`).join("")}</p>`:""}
+    <div class="cols">
+      <div><h4>LinkedIn headline</h4><p>${b("a_li_headline")}</p><h4>LinkedIn priorities</h4><p>${b("a_li_audit")}</p></div>
+      <div><h4>Instagram bio</h4><p>${b("a_ig_bio")}</p><h4>First Reels</h4><p>${b("a_ig_reels")}</p></div>
+    </div>
+    <h4>Reach secrets in play · ${done.length} of ${SECRETS.length}</h4>
+    <p>${done.length?done.map(s=>esc(s.h)).join(" · "):'<span class="blank">None marked yet. Chapter vi.</span>'}</p>
+    <h4>Your daily twenty minutes</h4>
+    <div class="routine">
+      <div><b>i</b><span>Comment early on three large LinkedIn posts</span></div>
+      <div><b>ii</b><span>Reply to every comment and DM</span></div>
+      <div><b>iii</b><span>One Story with a poll or question</span></div>
+      <div><b>iv</b><span>Publish one post, Reel or Trial Reel</span></div>
+    </div>
+    <div class="cols">
+      <div><h4>Days 1–30 · Be findable</h4><ul>
+        <li>Week 1: Portrait, statement, name-field keyword.</li>
+        <li>Week 2: Headline, About, Services page, bio, highlights.</li>
+        <li>Week 3: Three Reels tested as Trial Reels. Pin your top three.</li>
+        <li>Week 4: Opportunity Finder, two Collab invites, comment keyword live.</li></ul></div>
+      <div><h4>Days 31–60 · Be everywhere</h4><ul>
+        <li>Weeks 5–6: Four posts a week per platform with the Multiplier.</li>
+        <li>Week 7: Launch your newsletter and one question-titled article.</li>
+        <li>Week 8: Repost your best performer. Re-run the AI check.</li></ul></div>
+    </div>
+    <h4>Beyond day 60 · The 100K engine</h4>
+    <p>${raw("primary")?"Primary platform: "+esc(raw("primary")):'<span class="blank">Choose a primary platform in chapter vii</span>'}${v("followers")?" · "+esc(v("followers"))+" followers today":""}</p>
+    <div class="cols">
+      <div><h4>Signature series</h4><p>${b("a_series")}</p></div>
+      <div><h4>Winning patterns</h4><p>${b("a_outliers")}</p></div>
+    </div>
+    <div class="routine">
+      <div><b>Mon–Sat</b><span>Post daily on your primary platform</span></div>
+      <div><b>Daily</b><span>Log yesterday's posts in the Post Lab</span></div>
+      <div><b>Sunday</b><span>Run your review prompt</span></div>
+      <div><b>Monday</b><span>Double down on your best follow rate</span></div>
+    </div>
+    <div class="actions">
+      <button class="btn gold" id="emailRoad">Email me my roadmap</button>
+      <button class="btn ghost" id="copyRoad">Copy roadmap</button>
+      <p class="formmsg" id="roadMsg" role="status"></p>
+    </div>
+  </div>
+  <div class="offer">
+    <div><span class="label" style="color:var(--gold)">Private client work</span><h3>Prefer it done for you?</h3>
+    <p>Charity Loves AI builds your profiles, content system and weekly AI agents with you, so your visibility grows while you run your business.</p></div>
+    <a class="btn gold" href="https://charitylovesai.com" target="_blank" rel="noopener">Request a consultation</a>
+  </div>
+  <div class="actions"><button class="btn ghost" id="clearAll">Start over</button>
+    <span id="clearConfirm" hidden>This clears everything saved in this browser. <button class="btn ghost" id="clearYes">Clear it</button> <button class="btn ghost" id="clearNo">Keep my work</button></span></div>`;
+}
+
+/* ============ Score ============ */
+function score(){
+  const det=["first","business","linkedin","ig","city","industry","doing","who","goal","look","voice"], ans=answerIds();
+  const pd=det.filter(v).length/det.length, pa=ans.filter(v).length/ans.length, ps=SECRETS.filter(s=>v("x_"+s.id)).length/SECRETS.length;
+  return Math.round(pd*15 + pa*45 + ps*40);
+}
+const TIERS=["Invisible","Findable","Noticed","Magnetic","Everywhere"];
+const tierIdx = n => n<20?0:n<45?1:n<70?2:n<90?3:4;
+const tierName = n => TIERS[tierIdx(n)];
+function updateScore(){
+  const n=score(), i=tierIdx(n);
+  document.getElementById("score").textContent=n;
+  document.getElementById("tier").textContent=TIERS[i];
+  document.getElementById("ring").style.strokeDashoffset = (263.9*(1-n/100)).toFixed(1);
+  document.getElementById("tiers").innerHTML = TIERS.map((t,j)=>j===i?`<b>${t}</b>`:`<span>${t}</span>`).join("");
+  const msgs=["Your score rises as you complete prompts and put each reach secret to work.",
+    "You're findable. Now give people a reason to follow.",
+    "You're getting noticed. The reach secrets are where growth compounds.",
+    "Magnetic. People are starting to come to you.",
+    "Everywhere. Keep the daily twenty minutes and it keeps compounding."];
+  document.getElementById("smsg").textContent=msgs[i];
+  // Level-up moment: only when the viewer climbs into a higher tier during this visit
+  let up=false;
+  if(typeof S._tier!=="number"){ S._tier=i; save(); }
+  else if(i>S._tier){ S._tier=i; save(); celebrate(TIERS[i]); up=true; }
+  else if(i<S._tier){ S._tier=i; save(); }
+  scheduleSync(up);
+}
+function celebrate(name){
+  const d=document.querySelector(".dial"); d.classList.remove("lit"); void d.offsetWidth; d.classList.add("lit");
+  toast(`Level reached · You're now ${name}`, "level", 2600);
+}
+
+/* ============ Navigation ============ */
+let current="start";
+function show(id, scroll){
+  if(!TABS.some(t=>t.id===id)) id="start";
+  current=id;
+  const idx=TABS.findIndex(t=>t.id===id), t=TABS[idx];
+  const body = t.custom==="start"?startHTML():t.custom==="roadmap"?roadmapHTML():t.custom==="secrets"?secretsHTML(t):t.custom==="engine"?engineHTML(t):stepsHTML(t);
+  tabsEl.innerHTML = `<section class="tab" role="tabpanel"><div class="chap"><span class="rn">${RN[idx]}.</span><span class="label">Chapter ${RN[idx]} of ${RN[TABS.length-1]}</span></div><h2>${t.title}</h2>${body}
+   <div class="pager">${idx>0?`<button class="btn ghost" data-go="${TABS[idx-1].id}">← ${TABS[idx-1].name}</button>`:"<span></span>"}
+   ${idx<TABS.length-1?`<button class="btn" data-go="${TABS[idx+1].id}">${TABS[idx+1].name} →</button>`:""}</div></section>`;
+  renderRail(id); updateLimits(); updateScore();
+  try{ history.replaceState(null,"","#"+id); }catch(e){}
+  S._tab=id; save();
+  if(scroll){ const top=document.getElementById("app").getBoundingClientRect().top+window.scrollY-12; window.scrollTo({top,behavior:"smooth"}); }
+  if(id==="roadmap") wireRoad();
+}
+function getPrompt(ref){
+  const [a,b]=ref.split(":");
+  return a==="secret" ? SECRETS[+b].prompt : TABS.find(t=>t.id===a).steps[+b].prompt;
+}
+function refresh(){
+  document.querySelectorAll("pre[data-ref]").forEach(p=>p.innerHTML=fill(getPrompt(p.dataset.ref)));
+  if(current==="secrets") document.querySelectorAll(".secret .move").forEach((el,i)=>el.innerHTML=`<b>Your move.</b> ${fill(SECRETS[i].move)}`);
+}
+function updateLimits(){
+  document.querySelectorAll("[data-lim]").forEach(el=>{
+    const n=v(el.dataset.lim).length, m=+el.dataset.max;
+    el.textContent=`${n} / ${m} characters`; el.classList.toggle("over",n>m);
+  });
+}
+
+/* ============ Utilities ============ */
+let toastT;
+function toast(msg, kind, ms){
+  const t=document.getElementById("toast"); t.textContent=msg; t.className="toast on"+(kind?" "+kind:"");
+  clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("on"), ms||1600);
+}
+function copyText(text){
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(()=>toast("Copied"),()=>fallbackCopy(text)); }
+  else fallbackCopy(text);
+}
+function fallbackCopy(text){
+  const ta=document.createElement("textarea"); ta.value=text; ta.setAttribute("readonly",""); ta.style.cssText="position:fixed;top:0;left:0;opacity:0";
+  document.body.appendChild(ta); ta.select(); let ok=false; try{ ok=document.execCommand("copy"); }catch(e){} ta.remove();
+  toast(ok?"Copied":"Select the text and copy it");
+}
+async function postLead(body){
+  try{
+    const r=await fetch(API,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});
+    let j={}; try{ j=await r.json(); }catch(e){}
+    return {ok:r.ok && j.ok!==false, error:j.error};
+  }catch(e){ return {ok:false}; }
+}
+
+function wireRoad(){
+  document.getElementById("copyRoad").onclick=()=>copyText(roadmapText());
+  const msg=document.getElementById("roadMsg");
+  document.getElementById("emailRoad").onclick=async e=>{
+    if(!v("email")){ msg.className="formmsg err"; msg.textContent="We don't have your email yet. Use Copy roadmap instead."; return; }
+    e.target.disabled=true; msg.className="formmsg"; msg.textContent="Sending…";
+    const r=await postLead({event:"roadmap",first:v("first"),email:v("email"),ig:v("ig"),linkedin:v("linkedin"),industry:v("industry"),city:v("city"),goal:v("goal"),
+      ...(S.share==="0"?{score:score()}:progressSnapshot()), roadmap:roadmapText()});
+    e.target.disabled=false;
+    if(r.ok){ msg.textContent=`On its way to ${v("email")}.`; }
+    else { msg.className="formmsg err"; msg.textContent="We couldn't send it right now. Use Copy roadmap and save it somewhere safe."; }
+  };
+  const c=document.getElementById("clearConfirm");
+  document.getElementById("clearAll").onclick=()=>{c.hidden=false};
+  document.getElementById("clearNo").onclick=()=>{c.hidden=true};
+  document.getElementById("clearYes").onclick=()=>{ const keep={_lead:S._lead,first:S.first,email:S.email}; S=keep; save(); show("start",true); toast("Cleared"); };
+}
+
+/* ============ Events ============ */
+document.addEventListener("input",e=>{
+  const d=e.target.dataset||{};
+  if(d.color){ // color picker → keep the hex field in sync
+    S[d.color]=e.target.value; const t=document.getElementById("t_"+d.color); if(t) t.value=e.target.value;
+    save(); refresh(); updateScore(); return;
+  }
+  const k=d.k; if(!k) return;
+  S[k]=e.target.value;
+  if((k==="c1"||k==="c2") && /^#[0-9a-f]{6}$/i.test(e.target.value.trim())){ const p=document.getElementById("p_"+k); if(p) p.value=e.target.value.trim(); }
+  save(); refresh(); updateLimits(); updateScore(); renderRail(current);
+});
+document.addEventListener("change",e=>{
+  const d=e.target.dataset||{};
+  if(d.share!==undefined){ S.share=e.target.checked?"1":"0"; save(); toast(e.target.checked?"Progress sharing on":"Progress sharing off"); if(e.target.checked) scheduleSync(true); return; }
+  if(d.k==="followers" && !raw("f0") && !isNaN(parseInt(e.target.value,10))){ S.f0=String(parseInt(e.target.value,10)); S.f0date=new Date().toISOString().slice(0,10); }
+  if(d.k){ S[d.k]=e.target.value; save(); refresh(); updateScore(); renderRail(current);
+    if(current==="engine" && (d.k==="followers"||d.k==="primary")) rerenderKeepScroll(); }
+  if(d.x){ S["x_"+d.x]=e.target.checked?"1":""; save(); updateScore(); renderRail(current); if(e.target.checked) toast("Visibility +"+Math.round(40/SECRETS.length)); }
+});
+document.addEventListener("click",e=>{
+  const r=e.target.closest("nav.rail button"); if(r){ show(r.dataset.id,true); return; }
+  const g=e.target.closest("[data-go]"); if(g){ show(g.dataset.go,true); return; }
+  const c=e.target.closest(".copy"); if(c){ copyText(plain(getPrompt(c.dataset.ref))); return; }
+  if(e.target.id==="labAdd"){ addLab(); return; }
+  const del=e.target.closest("[data-del]"); if(del){ S.lab=labRows().filter(r=>String(r.id)!==del.dataset.del); save(); rerenderKeepScroll(); return; }
+  if(e.target.id==="clearColors"){ S.c1=""; S.c2=""; save(); show("start"); toast("Colors cleared"); }
+});
+
+/* ============ Post Lab ============ */
+const num = id => { const x=parseInt(String(document.getElementById(id).value).replace(/[^\d]/g,""),10); return isNaN(x)?0:x; };
+function rerenderKeepScroll(){ const y=window.scrollY; show(current); window.scrollTo(0,y); }
+function addLab(){
+  const msg=document.getElementById("labMsg"), hook=document.getElementById("lab_hook").value.trim(), views=num("lab_views");
+  if(!hook){ msg.className="formmsg err"; msg.textContent="Add the hook or first line so you can recognize the post later."; return document.getElementById("lab_hook").focus(); }
+  if(!views){ msg.className="formmsg err"; msg.textContent="Add the view count from your post insights."; return document.getElementById("lab_views").focus(); }
+  const rows=labRows();
+  rows.push({id:Date.now(), date:document.getElementById("lab_date").value||new Date().toISOString().slice(0,10),
+    plat:document.getElementById("lab_plat").value, hook, views, sends:num("lab_sends"), saves:num("lab_saves"), follows:num("lab_follows")});
+  S.lab=rows.slice(-200); save(); rerenderKeepScroll(); toast("Post logged");
+}
+
+/* ============ Progress sync (to GoHighLevel) ============ */
+const STAGE_NAMES=["Under 1K","1K to 10K","10K to 100K","100K plus"];
+function progressSnapshot(){
+  const rows=labRows(), f=parseInt(raw("followers"),10), f0=parseInt(raw("f0"),10);
+  const best=rows.reduce((b,r)=> r.views>0 && (!b || r.follows/r.views>b.follows/b.views) ? r : b, null);
+  const views=rows.map(r=>r.views).sort((a,b)=>a-b);
+  const med=views.length?views[Math.floor((views.length-1)/2)]:0;
+  const n=score();
+  return {
+    score:n, tier:tierName(n),
+    followers: isNaN(f)?null:f, followers_start: isNaN(f0)?null:f0,
+    followers_growth: (isNaN(f)||isNaN(f0))?null:f-f0,
+    stage: isNaN(f)?"":STAGE_NAMES[f<1000?0:f<10000?1:f<100000?2:3],
+    primary: raw("primary"), posts_logged: rows.length, median_views: med,
+    best_follow_rate: best?Number(perK(best.follows,best.views)):null,
+    total_follows_from_posts: rows.reduce((s,r)=>s+r.follows,0),
+    secrets_done: SECRETS.filter(s=>v("x_"+s.id)).length,
+    chapters_done: TABS.filter(tabDone).length, chapters_total: TABS.length
+  };
+}
+let syncT;
+function scheduleSync(milestone){
+  if(!S._lead || !v("email") || S.share==="0") return;
+  clearTimeout(syncT); syncT=setTimeout(()=>doSync(milestone), milestone?1500:8000);
+}
+async function doSync(milestone){
+  const snap=progressSnapshot(), key=JSON.stringify(snap);
+  if(S._syncStage!==undefined && snap.stage && snap.stage!==S._syncStage) milestone=true; // new follower stage
+  if(key===S._syncKey) return;
+  if(!milestone && Date.now()-(S._syncAt||0) < 6*3600*1000) return; // routine updates at most every 6 hours
+  const r=await postLead({event:"progress", milestone:!!milestone, first:v("first"), email:v("email"), ig:v("ig"), linkedin:v("linkedin"), industry:v("industry"), city:v("city"), ...snap});
+  if(r.ok){ S._syncKey=key; S._syncAt=Date.now(); S._syncStage=snap.stage; save(); }
+}
+
+/* ============ Accounts (Supabase Auth) ============ */
+// Public project URL and anon key: safe to ship in the page. Access is enforced by Supabase.
+const SUPABASE_URL = "https://spgfonmkwoukkrmzeead.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNwZ2Zvbm1rd291a2tybXplZWFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI0NDc1NTQsImV4cCI6MjEwODAyMzU1NH0.RgjMIyjEFoubwsnoR50Jgkxkwllie773RHoBVOCKeeM";
+const PREVIEW_MODE = false; // true only in the private Claude preview, where sign-in can't reach Supabase
+
+const gate=document.getElementById("gate"), app=document.getElementById("app");
+const startHash = location.hash || "";
+const IS_RECOVERY = /type=recovery/.test(startHash);
+const AUTH_ERR = /error_description=([^&]+)/.exec(startHash);
+let sb=null;
+try{ if(!PREVIEW_MODE && window.supabase) sb=window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {auth:{persistSession:true, autoRefreshToken:true, detectSessionInUrl:true}}); }catch(e){ console.error(e); }
+
+function openKit(scroll){
+  gate.hidden=true; app.hidden=false;
+  const h=(location.hash||"").slice(1);
+  show(TABS.some(t=>t.id===h)?h:(S._tab||"start"), scroll);
+}
+function showGate(panel, note){
+  app.hidden=true; gate.hidden=false;
+  showAuth(panel||"signup", note);
+}
+function showAuth(panel, note){
+  ["signup","signin","forgot","reset"].forEach(p=>document.getElementById("f_"+p).hidden = p!==panel);
+  document.querySelectorAll(".authtabs [data-auth]").forEach(b=>b.setAttribute("aria-selected", String(b.dataset.auth===panel)));
+  document.querySelector(".authtabs").hidden = panel==="reset";
+  const n=document.getElementById("authNote"); n.hidden=!note; n.textContent=note||"";
+}
+function setMsg(id, text, err){ const m=document.getElementById("msg_"+id); m.className="formmsg"+(err?" err":""); m.textContent=text||""; }
+const validEmail = e => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+function friendly(err){
+  const m=String(err&&err.message||err||"").toLowerCase();
+  if(m.includes("invalid login")) return "That email and password don't match. Try again, or reset your password.";
+  if(m.includes("not confirmed")) return "Please confirm your email first. Check your inbox for the link we sent.";
+  if(m.includes("already registered")) return "An account with this email already exists. Sign in instead.";
+  if(m.includes("password") && (m.includes("least") || m.includes("short") || m.includes("weak"))) return "Choose a stronger password: at least 8 characters.";
+  if(m.includes("rate limit") || m.includes("too many")) return "Too many attempts. Please wait a minute and try again.";
+  if(m.includes("fetch") || m.includes("network")) return "We couldn't reach the server. Check your connection and try again.";
+  return "Something went wrong. Please try again.";
+}
+const siteURL = () => location.origin + location.pathname;
+
+function enter(user, scroll){
+  // Each account keeps its own saved work in this browser
+  const k = KEY+":"+user.id; let d=null;
+  try{ d=JSON.parse(localStorage.getItem(k)||"null"); }catch(e){}
+  if(!d){ d = S._lead ? {} : S; } // first sign-in on this browser carries over anything typed before
+  S=d; ACTIVE_KEY=k;
+  S.email=user.email; const md=user.user_metadata||{};
+  if(!S.first && md.first_name) S.first=md.first_name;
+  if(!S.ig && md.instagram) S.ig=md.instagram;
+  if(S.share===undefined && md.share!==undefined) S.share=md.share?"1":"0";
+  S._lead=1; save();
+  trackLogin(user);
+  document.getElementById("acctEmail").textContent=user.email;
+  document.getElementById("acctBox").hidden=false;
+  updateScore(); openKit(scroll);
+}
+
+// Tell GoHighLevel about each visit: on every sign-in, and when a saved session returns (at most every 12 hours)
+let freshSignIn=false;
+function trackLogin(user){
+  const now=Date.now();
+  if(!freshSignIn && now-(S._loginAt||0) < 12*3600*1000) return;
+  freshSignIn=false; S._loginAt=now; S._logins=(S._logins||0)+1; save();
+  const md=user.user_metadata||{};
+  postLead({event:"login", first:S.first||md.first_name||"", email:user.email, ig:S.ig||md.instagram||"",
+    logins:S._logins, ...(S.share==="0"?{}:progressSnapshot())});
+}
+
+document.addEventListener("click", e=>{
+  const t=e.target.closest("[data-auth]"); if(!t || !t.closest("#authCard")) return;
+  showAuth(t.dataset.auth);
+  if(t.dataset.auth==="forgot"){ document.getElementById("r_email").value=document.getElementById("s_email").value; }
+});
+
+document.getElementById("f_signup").addEventListener("submit", async e=>{
+  e.preventDefault(); const f=e.target, fd=new FormData(f), btn=f.querySelector("button[type=submit]");
+  const first=String(fd.get("first")||"").trim(), email=String(fd.get("email")||"").trim(), password=String(fd.get("password")||"");
+  if(fd.get("company")) return;
+  if(!first){ setMsg("signup","Add your first name.",1); return document.getElementById("g_first").focus(); }
+  if(!validEmail(email)){ setMsg("signup","Enter a valid email address.",1); return document.getElementById("g_email").focus(); }
+  if(password.length<8){ setMsg("signup","Use a password with at least 8 characters.",1); return document.getElementById("g_pass").focus(); }
+  if(!sb){ setMsg("signup","Sign-up isn't available right now. Please try again shortly.",1); return; }
+  btn.disabled=true; setMsg("signup","Creating your account…");
+  const ig=String(fd.get("ig")||"").trim(), share=!!fd.get("share");
+  const {data, error} = await sb.auth.signUp({email, password, options:{emailRedirectTo:siteURL(), data:{first_name:first, instagram:ig, share}}});
+  btn.disabled=false;
+  if(error){ setMsg("signup", friendly(error), 1); return; }
+  S.first=S.first||first; if(ig) S.ig=S.ig||ig; S.share=share?"1":"0"; save();
+  postLead({event:"signup", first, email, ig, consent:!!fd.get("consent")}); // to GoHighLevel, in the background
+  setMsg("signup","");
+  if(data.session){ enter(data.session.user, true); }
+  else {
+    document.getElementById("s_email").value=email;
+    showAuth("signin", `Almost there. We sent a confirmation link to ${email}. Click it to activate your account, then sign in here.`);
+  }
+});
+
+document.getElementById("f_signin").addEventListener("submit", async e=>{
+  e.preventDefault(); const f=e.target, fd=new FormData(f), btn=f.querySelector("button[type=submit]");
+  const email=String(fd.get("email")||"").trim(), password=String(fd.get("password")||"");
+  if(!validEmail(email)){ setMsg("signin","Enter the email you signed up with.",1); return; }
+  if(!password){ setMsg("signin","Enter your password.",1); return; }
+  if(!sb){ setMsg("signin","Sign-in isn't available right now. Please try again shortly.",1); return; }
+  btn.disabled=true; setMsg("signin","Signing you in…");
+  const {data, error} = await sb.auth.signInWithPassword({email, password});
+  btn.disabled=false;
+  if(error){ setMsg("signin", friendly(error), 1); return; }
+  setMsg("signin",""); f.reset(); freshSignIn=true; enter(data.user, true);
+});
+
+document.getElementById("f_forgot").addEventListener("submit", async e=>{
+  e.preventDefault(); const f=e.target, btn=f.querySelector("button[type=submit]");
+  const email=String(new FormData(f).get("email")||"").trim();
+  if(!validEmail(email)){ setMsg("forgot","Enter the email you signed up with.",1); return; }
+  if(!sb){ setMsg("forgot","Password reset isn't available right now. Please try again shortly.",1); return; }
+  btn.disabled=true; setMsg("forgot","Sending…");
+  const {error} = await sb.auth.resetPasswordForEmail(email, {redirectTo: siteURL()});
+  btn.disabled=false;
+  if(error && /rate|too many/i.test(error.message)){ setMsg("forgot", friendly(error), 1); return; }
+  setMsg("forgot", `If an account exists for ${email}, a reset link is on its way. It expires in about an hour, so check your inbox and spam folder soon.`);
+});
+
+document.getElementById("f_reset").addEventListener("submit", async e=>{
+  e.preventDefault(); const f=e.target, fd=new FormData(f), btn=f.querySelector("button[type=submit]");
+  const p1=String(fd.get("password")||""), p2=String(fd.get("password2")||"");
+  if(p1.length<8){ setMsg("reset","Use at least 8 characters.",1); return; }
+  if(p1!==p2){ setMsg("reset","The two passwords don't match.",1); return; }
+  btn.disabled=true; setMsg("reset","Saving…");
+  const {data, error} = await sb.auth.updateUser({password:p1});
+  btn.disabled=false;
+  if(error){ setMsg("reset", /expired|session/i.test(error.message) ? "This reset link has expired. Request a new one from Sign in → Forgot your password." : friendly(error), 1); return; }
+  f.reset(); toast("Password updated"); freshSignIn=true; enter(data.user, true);
+});
+
+document.getElementById("signOut").addEventListener("click", async ()=>{
+  try{ if(sb) await sb.auth.signOut(); }catch(e){}
+  S={}; ACTIVE_KEY=KEY; document.getElementById("acctBox").hidden=true;
+  try{ history.replaceState(null,"",location.pathname); }catch(e){}
+  showGate("signin","You're signed out. Your work is saved to your account.");
+  updateScore();
+});
+
+async function initAuth(){
+  updateScore();
+  if(PREVIEW_MODE){ S._lead=1; save(); openKit(false); return; }
+  if(!sb){ showGate("signup","We couldn't load sign-in. Refresh the page to try again."); return; }
+  sb.auth.onAuthStateChange((event, session)=>{
+    if(event==="PASSWORD_RECOVERY") showGate("reset");
+  });
+  const {data:{session}} = await sb.auth.getSession();
+  if(IS_RECOVERY){ showGate("reset"); return; }
+  if(AUTH_ERR && !session){ showGate("signin", /expired/i.test(decodeURIComponent(AUTH_ERR[1])) ? "That link has expired. Sign in, or request a new password reset link." : "That link didn't work. Please try again."); return; }
+  if(session) enter(session.user, false); else showGate("signup");
+}
+initAuth();
+</script>
+</body>
+</html>
