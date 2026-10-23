@@ -441,7 +441,7 @@ function save(){ try { localStorage.setItem(ACTIVE_KEY, JSON.stringify(S)); } ca
 const FIELDS = {
   first:"your first name", business:"your business name", linkedin:"your LinkedIn URL", ig:"your Instagram handle",
   city:"your city or area", industry:"your industry", doing:"what you do", who:"who you serve", goal:"your 60-day goal",
-  style:"your look", colors:"your two signature colors", voice:"your voice",
+  style:"your look", shot:"your headshot style", colors:"your two signature colors", voice:"your voice",
   primary:"your primary platform", followers:"your follower count", lab:"your Post Lab results (log at least 10 posts first)"
 };
 const LOOKS = {
@@ -451,10 +451,18 @@ const LOOKS = {
   "Clean and modern":{d:"crisp neutrals, one accent color, simple sans-serif type, clear structure", sw:["#111418","#e9ecef","#2f6bff"]},
   "Playful":         {d:"bright pops of color, hand-drawn touches, stickers, casual type", sw:["#ff7ab6","#7ae1c8","#ffcf5c"]}
 };
+const HEADSHOTS = {
+  "Studio":                 "seamless studio backdrop, soft even key light, crisp corporate polish",
+  "Editorial":              "magazine-cover lighting with gentle contrast and sculpted shadows, confident and elevated",
+  "Natural light outdoors": "soft daylight, blurred greenery or city background, relaxed and approachable",
+  "Dark and moody":         "low-key lighting, deep shadows, rich dark background, dramatic and premium",
+  "Bright and airy":        "high-key lighting, light clean background, fresh and welcoming"
+};
 const VOICES = ["Polished and authoritative","Warm and friendly","Straight-talking and bold","Playful and witty"];
 const raw = k => String(S[k]||"").trim();
 function v(k){
   if(k==="style"){ const l=raw("look"); return l && LOOKS[l] ? `${l} (${LOOKS[l].d})` : ""; }
+  if(k==="shot"){ const h=raw("shot"); return h && HEADSHOTS[h] ? `${h} (${HEADSHOTS[h]})` : ""; }
   if(k==="colors"){
     const c=["c1","c2"].map(raw).filter(Boolean);
     if(c.length===2) return `${c[0]} and ${c[1]}`;
@@ -550,14 +558,15 @@ Then give me the single best keyword phrase to own for the next 60 days, and why
   lede:"People follow people. The same polished photo on every platform makes you instantly recognizable in a crowded feed, and helps AI tools connect your profiles as one person.",
   steps:[
    {k:"Prompt one", h:"Create your AI headshot", p:"Upload one clear, well-lit photo of yourself (face forward, no sunglasses) to ChatGPT or Gemini, then paste this prompt with it.",
+    picker:{k:"shot", label:"Choose your headshot style", opts:HEADSHOTS},
     prompt:`Using the photo I uploaded, create a premium professional headshot of me.
 
 Keep my face, skin tone, hair texture and features exactly the same. Do not slim, smooth or reshape my face.
 
 Style:
 - Chest-up framing, eyes to camera, warm and confident expression
-- Overall look: {style}
-- Lighting and mood that match that look
+- Photo style: {shot}
+- Overall brand feel: {style}
 - Background: softly out of focus, in a tone drawn from my signature colors ({colors})
 - Wardrobe: right for someone in {industry} with this look, with one color that complements my palette
 - Square 1:1, high resolution
@@ -1010,6 +1019,7 @@ function stepsHTML(t){
     h += `<div class="step">
       <div class="step-head"><span class="label">${s.k}</span><h3>${s.h}</h3></div>
       ${s.p?`<p>${s.p}</p>`:""}
+      ${s.picker?`<label for="f_${s.picker.k}" style="max-width:420px">${s.picker.label}<select id="f_${s.picker.k}" data-k="${s.picker.k}"><option value="">Choose one</option>${Object.keys(s.picker.opts).map(x=>`<option ${raw(s.picker.k)===x?"selected":""}>${x}</option>`).join("")}</select></label>`:""}
       ${promptBlock(s.prompt, t.id+":"+i)}
       ${a?`<div><label for="f_${a.id}">${a.label}<textarea id="f_${a.id}" data-k="${a.id}" placeholder="${esc(a.ph)}">${esc(v(a.id))}</textarea></label>
         ${a.max?`<div class="limit" data-lim="${a.id}" data-max="${a.max}"></div>`:""}</div>`:""}
